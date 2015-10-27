@@ -29,4 +29,10 @@ public class ReadyMenu : MonoBehaviour
 		startText [player].text = text;
 	}
 
+	public void ChangeToScene (string sceneToChangeTo)
+	{
+		GetComponent<ControllerManager>().UpdateConstantData();
+		Application.LoadLevel (sceneToChangeTo);
+	}
+
 }
