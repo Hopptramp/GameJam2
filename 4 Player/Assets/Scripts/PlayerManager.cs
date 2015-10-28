@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 			int playerController = GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().playerController[i];
 			if(playerController <= MAX_PLAYERS)
 			{
-				players[i] = Instantiate(prefab, new Vector3(i*2, 0, i*2), Quaternion.identity) as GameObject;
+				players[i] = Instantiate(prefab, new Vector3((i+2)*2, (i+2)*2,0), Quaternion.identity) as GameObject;
 				players[i].GetComponent<Player>().SetupPlayerID(i + 1, playerController);
 			}
 		}
