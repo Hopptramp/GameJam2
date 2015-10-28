@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
 		float moveVertical = Input.GetAxis ("Vertical" + input);
 		
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		Vector3 movement = new Vector3 (moveHorizontal, moveVertical, 0.0f);
 		rb.velocity = movement * speed; //may need a delta.time
 
 		//transform.position += (movement * Time.deltaTime * movementSpeed);
