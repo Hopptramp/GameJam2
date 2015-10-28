@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 	private int playerID = 1;
 	private int playerInput = 0;
 	private Rigidbody rb;
+	public GameObject directorPrefab;
+	private GameObject director;
+	public GameObject bubblePrefab;
 
 	//private bool playerActive = false;
 
@@ -15,6 +18,8 @@ public class Player : MonoBehaviour
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody> ();
+		director = Instantiate(directorPrefab, transform.position, Quaternion.identity) as GameObject;
+		director.transform.parent = transform;
 	}
 	
 	// Update is called once per frame
@@ -26,17 +31,45 @@ public class Player : MonoBehaviour
 			input += playerInput;
 		}
 
-		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
-		float moveVertical = Input.GetAxis ("Vertical" + input);
-		
-		Vector3 movement = new Vector3 (moveHorizontal, moveVertical, 0.0f);
-		rb.velocity = movement * speed; //may need a delta.time
+		float moveHorizontal2 = Input.GetAxis ("HorizontalRight" + input);
+		float moveVertical2 = Input.GetAxis ("VerticalRight" + input);
+		if(moveHorizontal2 != 0 || moveVertical2 != 0)
+		{
+			float angle = Mathf.Atan2 (-moveHorizontal2, moveVertical2) * Mathf.Rad2Deg;
+			director.transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
+		}
 
-		//transform.position += (movement * Time.deltaTime * movementSpeed);
 		if (Input.GetButtonDown ("Jump" + input))
+		{
+			
+		}
+
+		float rightTrigger = Input.GetAxis ("RightTrigger" + input);
+		if (rightTrigger > 0) 
 		{
 
 		}
+
+		float leftTrigger = Input.GetAxis ("LeftTrigger" + input);
+		if (leftTrigger > 0) 
+		{
+
+		}
+	}
+
+	void FixedUpdate()
+	{
+		string input = null;
+		if(playerInput != 0)
+		{
+			input += playerInput;
+		}
+		
+		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
+		//float moveVertical = Input.GetAxis ("Vertical" + input);
+		
+		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, 0.0f);
+		rb.velocity = movement * speed; //may need a delta.time
 	}
 
 	public void SetupPlayerID(int ID, int input)
