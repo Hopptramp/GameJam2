@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Player : MonoBehaviour 
 {
-	public float movementSpeed = 5;
+	public float speed = 5;
 	private int playerID = 1;
 	private int playerInput = 0;
+	private Rigidbody rb;
 
 	//private bool playerActive = false;
 
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
+		rb = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
@@ -29,7 +30,13 @@ public class Player : MonoBehaviour
 		float moveVertical = Input.GetAxis ("Vertical" + input);
 		
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		transform.position += (movement * Time.deltaTime * movementSpeed);
+		rb.velocity = movement * speed; //may need a delta.time
+
+		//transform.position += (movement * Time.deltaTime * movementSpeed);
+		if (Input.GetButtonDown ("Jump" + input))
+		{
+
+		}
 	}
 
 	public void SetupPlayerID(int ID, int input)
