@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerManager : MonoBehaviour 
 {
-	public int MAX_PLAYERS;
+	public int MAX_PLAYERS; //This needs setting back to private, I presume it was changed for testing but it breaks stuff
 	private GameObject[] players;
 	
 	// Use this for initialization

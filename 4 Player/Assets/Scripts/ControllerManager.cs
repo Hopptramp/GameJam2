@@ -6,9 +6,6 @@ public class ControllerManager : MonoBehaviour
 	private int MAX_PLAYERS;
 	private bool[] activeControllers;
 	private int[] playerController;
-	//private GameObject[] players;
-
-	//public GameObject playerPrefab;
 
 	// Use this for initialization
 	void Start () 
@@ -16,7 +13,6 @@ public class ControllerManager : MonoBehaviour
 		MAX_PLAYERS = GameObject.FindGameObjectWithTag("GlobalConstant").GetComponent<ConstantData>().MAX_PLAYERS;
 		//Setting up initial arrays
 		activeControllers = new bool[MAX_PLAYERS];
-		//players = new GameObject[MAX_PLAYERS];
 		playerController = new int[MAX_PLAYERS];
 		for(int i = 0; i < MAX_PLAYERS; ++i)
 		{
@@ -28,23 +24,24 @@ public class ControllerManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//Loop for through the maximum possible players
+		//Loop for through the maximum possible input methods
 		for (int i = 0; i < MAX_PLAYERS; ++i) 
 		{
-			//If a player presses start then spawn player and set id
+			//If a player presses start
 			if (Input.GetButton ("Start" + (i + 1))) 
 			{
 				if(activeControllers[i] == false)
 				{
-
-					//players[i] = Instantiate(playerPrefab, new Vector3(i*2, 0, i*2), Quaternion.identity) as GameObject;
+					//Get next free open player slot
 					int playerNumber = GetNextFreePlayerSlot ();
+					//If there is a free player slot (MAX_PLAYERS means no free slot in this statement)
 					if(playerNumber != MAX_PLAYERS)
 					{
+						//Setup player as using a specific control method
 						playerController[playerNumber] = i + 1;
-						//players[i].GetComponent<PlayerMovement>().SetupPlayerID(playerNumber+1);
 						string text = "Player " + (playerNumber + 1) + "\nReady";
 						GetComponent<ReadyMenu>().ChangeText(playerNumber, text);
+						//Set that this control method is now active
 						activeControllers[i] = true;
 					}
 					else
@@ -53,18 +50,20 @@ public class ControllerManager : MonoBehaviour
 					}
 				}
 			}
-			//Else if player presses back then destroy player
+			//Else if player presses back
 			else if (Input.GetButton ("Back" + (i + 1))) 
 			{
 				if(activeControllers[i] == true)
 				{
-					//Destroy(players[i]);
+					//Finds the corresponding player from the control method
 					int player = FindPlayerFromConroller(i);
 					if(player != MAX_PLAYERS)
 					{
+						//Set that player as having no control method 
 						playerController[player] = MAX_PLAYERS + 1;
 						string text = "Player " + (player + 1) + "\nPress Start";
 						GetComponent<ReadyMenu>().ChangeText(player, text);
+						//Set that this control method is not active
 						activeControllers[i] = false;
 					}
 				}
@@ -72,6 +71,7 @@ public class ControllerManager : MonoBehaviour
 		}
 	}
 
+	//Finds next free player slot
 	int GetNextFreePlayerSlot()
 	{
 		for(int i = 0; i < MAX_PLAYERS ; ++i)
@@ -84,6 +84,7 @@ public class ControllerManager : MonoBehaviour
 		return MAX_PLAYERS;
 	}
 
+	//Finds a player from a given control method
 	int FindPlayerFromConroller(int controller)
 	{
 		for(int i = 0; i < MAX_PLAYERS; ++i)
@@ -96,6 +97,7 @@ public class ControllerManager : MonoBehaviour
 		return MAX_PLAYERS;
 	}
 
+	//Updates constant data before changing scenes
 	public void UpdateConstantData()
 	{
 		for(int i = 0; i < MAX_PLAYERS; ++i)

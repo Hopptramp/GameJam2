@@ -4,12 +4,17 @@ using System.Collections;
 public class Player : MonoBehaviour 
 {
 	public float speed = 5;
+	public float chargeRate = 2;
+	public float bubbleCooldown = 0.2f;
 	private int playerID = 1;
 	private int playerInput = 0;
 	private Rigidbody rb;
 	public GameObject directorPrefab;
 	private GameObject director;
 	public GameObject bubblePrefab;
+	private ProgressBar bar;
+
+	private bool rightTriggerLastFrame = false;
 
 	//private bool playerActive = false;
 
@@ -18,6 +23,8 @@ public class Player : MonoBehaviour
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody> ();
+		bar = GetComponent<ProgressBar> ();
+		bar.ProgressOverTime (0, 0);
 		director = Instantiate(directorPrefab, transform.position, Quaternion.identity) as GameObject;
 		director.transform.parent = transform;
 	}
@@ -31,6 +38,7 @@ public class Player : MonoBehaviour
 			input += playerInput;
 		}
 
+		//Managing the aim direction using right thumbsticks
 		float moveHorizontal2 = Input.GetAxis ("HorizontalRight" + input);
 		float moveVertical2 = Input.GetAxis ("VerticalRight" + input);
 		if(moveHorizontal2 != 0 || moveVertical2 != 0)
@@ -47,7 +55,22 @@ public class Player : MonoBehaviour
 		float rightTrigger = Input.GetAxis ("RightTrigger" + input);
 		if (rightTrigger > 0) 
 		{
-
+			rightTriggerLastFrame = true;
+			//Only fire when not on cooldown
+			if(bar.ProgressOvertimeFinished() == true)
+			{
+				bar.IncreaseProgress (chargeRate * Time.deltaTime);
+			}
+		} 
+		else 
+		{
+			//If was holding right trigger and now have released (This is axis not button otherwise would have used GetButtonUp)
+			if(rightTriggerLastFrame == true)
+			{
+				//!!!FIRE THE BUBBLE!!!//
+				bar.ProgressOverTime(0, bubbleCooldown); //The progress bar is sorta managing the cooldown...ah well
+			}
+			rightTriggerLastFrame = false;
 		}
 
 		float leftTrigger = Input.GetAxis ("LeftTrigger" + input);
