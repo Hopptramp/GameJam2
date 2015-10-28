@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\ConstantData.cs" />
      <Compile Include="Assets\Scripts\ControllerManager.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\ReadyMenu.cs" />
  <Reference Include="UnityEngine.UI">
