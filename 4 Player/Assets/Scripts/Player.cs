@@ -8,32 +8,29 @@ public class Player : MonoBehaviour
 	public bool facingRight = true;			// For determining which way the player is currently facing.
 	[HideInInspector]
 	public bool jump = false;				// Condition for whether the player should jump.
-
+	public AudioClip[] jumpClips;	        // Array of clips for when the player jumps.
+	private Transform groundCheck;			// A position marking where to check if the player is grounded.
+	//private bool grounded = false;			// Whether or not the player is grounded.
+	private Animator anim;					// Reference to the player's animator component.
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
-	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
-	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
+	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.		
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
+
+
+
 
 	public float inputScale = 5;
 	public float chargeRate = 2;
 	public float bubbleCooldown = 0.2f;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> origin/master
 	private int playerID = 1;
 	private int playerInput = 0;
-	private Rigidbody rb;
+	//private Rigidbody rb;
 
 	public GameObject directorPrefab;
 	private GameObject director;
 	public GameObject bubblePrefab;
 	private ProgressBar bar;
-
-	private Transform groundCheck;			// A position marking where to check if the player is grounded.
-	private bool grounded = false;			// Whether or not the player is grounded.
-	private Animator anim;					// Reference to the player's animator component.
 
 	private bool rightTriggerLastFrame = false;
 
@@ -52,7 +49,7 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		rb = GetComponent<Rigidbody> ();
+		//rb = GetComponent<Rigidbody> ();
 		bar = GetComponent<ProgressBar> ();
 		bar.ProgressOverTime (0, 0);
 		director = Instantiate(directorPrefab, transform.position, Quaternion.identity) as GameObject;
@@ -62,7 +59,6 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-<<<<<<< HEAD
 		if (jumpTime > 0.0f) 
 		{
 			jumpTime = jumpTime - Time.deltaTime;
@@ -71,19 +67,17 @@ public class Player : MonoBehaviour
 		{
 			applyJumpOnImpact = false;
 		}
-=======
 
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
 		//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 		
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		//if (Input.GetButtonDown ("Jump") && grounded)
-			if (Input.GetButtonDown("Jump")) 
+		/*if (Input.GetButtonDown("Jump")) 
 		{
 			jump = true;
-		}
-
->>>>>>> origin/master
+		}*/
+		
 		string input = null;
 		if(playerInput != 0)
 		{
@@ -98,18 +92,20 @@ public class Player : MonoBehaviour
 			float angle = Mathf.Atan2 (-moveHorizontal2, moveVertical2) * Mathf.Rad2Deg;
 			director.transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
 		}
-<<<<<<< HEAD
-=======
-		if (moveHorizontal2 > 0 && !facingRight) {
+
+		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
+		float moveVertical = Input.GetAxis ("Vertical" + input);
+		if (moveHorizontal > 0 && !facingRight) 
+		{
 			// ... flip the player.
 			Flip ();
 		}
 		// Otherwise if the input is moving the player left and the player is facing right...
-		else if (moveHorizontal2 < 0 && facingRight) {
+		else if (moveHorizontal < 0 && facingRight) 
+		{
 			// ... flip the player.
 			Flip ();
 		}
->>>>>>> origin/master
 
 		float rightTrigger = Input.GetAxis ("RightTrigger" + input);
 		if (rightTrigger > 0) 
@@ -148,8 +144,7 @@ public class Player : MonoBehaviour
 		}
         
 		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
-
-<<<<<<< HEAD
+		
 		GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
 
 		bool canJump = GetComponentInChildren<JumpReset> ().GetCanJump();
@@ -158,13 +153,12 @@ public class Player : MonoBehaviour
 			applyJumpOnImpact =true;
 			jumpTime = 	0.25f;
 		}
-
-=======
+		
 		// The Speed animator parameter is set to the absolute value of the horizontal input.
 		anim.SetFloat("Speed", Mathf.Abs(moveHorizontal));
 
 		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-		if (moveHorizontal * rb.velocity.x < maxSpeed) {
+	/*	if (moveHorizontal * rb.velocity.x < maxSpeed) {
 			// ... add a force to the player.
 			rb.AddForce (Vector2.right * moveHorizontal * moveForce);
 		}
@@ -175,10 +169,10 @@ public class Player : MonoBehaviour
 			rb.velocity = new Vector2 (Mathf.Sign (rb.velocity.x) * maxSpeed, rb.velocity.y);
 			anim.SetTrigger ("playerRun");
 		
-		}
+		}*/
 
 		// If the input is moving the player right and the player is facing left...
-		if (moveHorizontal > 0 && !facingRight) {
+		/*if (moveHorizontal > 0 && !facingRight) {
 			// ... flip the player.
 			Flip ();
 		}
@@ -186,9 +180,9 @@ public class Player : MonoBehaviour
 		else if (moveHorizontal < 0 && facingRight) {
 			// ... flip the player.
 			Flip ();
-		}
+		}*/
 		//float moveVertical = Input.GetAxis ("Vertical" + input);
-		GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
+		//GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
 
 
        // if (jump)
@@ -196,7 +190,7 @@ public class Player : MonoBehaviour
            // GetComponent<bubbleInteraction>().addAcceleration(new Vector3(0, 100, 0));
            // jump = false;
        // }
-		if(jump)
+		/*if(jump)
 		{
 			// Set the Jump animator trigger parameter.
 			anim.SetTrigger("playerJump");
@@ -212,18 +206,24 @@ public class Player : MonoBehaviour
 			
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
-		}
->>>>>>> origin/master
+		}*/
 		//Vector3 movement = new Vector3 (moveHorizontal, 0.0f, 0.0f);
 		//rb.velocity = movement * speed; //may need a delta.time
 	}
 
-<<<<<<< HEAD
+
 	void OnCollisionEnter(Collision col)
 	{
 		if (applyJumpOnImpact == true) 
 		{
 			GetComponent<bubbleInteraction> ().addAcceleration (new Vector3 (0, 60, 0));
+
+			anim.SetTrigger("playerJump");
+			
+			// Play a random jump audio clip.
+			//int i = Random.Range(0, jumpClips.Length);
+			//AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+
 			applyJumpOnImpact = false;
 		}
 	}
@@ -233,13 +233,17 @@ public class Player : MonoBehaviour
 		if (applyJumpOnImpact == true) 
 		{
 			GetComponent<bubbleInteraction> ().addAcceleration (new Vector3 (0, 60, 0));
+
+			anim.SetTrigger("playerJump");
+			
+			// Play a random jump audio clip.
+			//int i = Random.Range(0, jumpClips.Length);
+			//AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+
 			applyJumpOnImpact = false;
 		}
 	}
 
-
-
-=======
 	void Flip ()
 	{
 		// Switch the way the player is labelled as facing.
@@ -251,7 +255,6 @@ public class Player : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
->>>>>>> origin/master
 	public void SetupPlayerID(int ID, int input)
 	{
 		playerID = ID;

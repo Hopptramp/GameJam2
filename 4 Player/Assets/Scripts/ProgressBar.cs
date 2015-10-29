@@ -17,7 +17,7 @@ public class ProgressBar : MonoBehaviour
 	void Start () 
 	{
 		bar = Instantiate(barPrefab, transform.position, Quaternion.identity) as GameObject;
-		bar.transform.parent = transform;
+		bar.transform.SetParent(transform);
 		barImage = bar.transform.GetChild(0).GetComponent<Image>();
 	}
 	

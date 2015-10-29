@@ -1,23 +1,10 @@
 ﻿<Properties>
-<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Bubble.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ProgressBar.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player.cs" Line="30" Column="38" />
-      <File FileName="Assets\Scripts\ControllerManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Bubble.cs" Line="85" Column="26" />
-      <File FileName="Assets\Scripts\bubbleInteraction.cs" Line="56" Column="37" />
-      <File FileName="Assets\Scripts\JumpReset.cs" Line="16" Column="3" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerControl.cs">
-    <Files>
-      <File FileName="Assets\Scripts\BubbleAnimation.cs" Line="20" Column="1" />
-      <File FileName="Assets\Scripts\PlayerControl.cs" Line="88" Column="4" />
-      <File FileName="Assets\Scripts\Player.cs" Line="196" Column="35" />
-      <File FileName="Assets\Scripts\bubbleInteraction.cs" Line="38" Column="4" />
->>>>>>> origin/master
+      <File FileName="Assets\Scripts\Player.cs" Line="183" Column="6" />
+      <File FileName="Assets\Scripts\PlayerControl.cs" Line="36" Column="3" />
+      <File FileName="Assets\Scripts\ProgressBar.cs" Line="20" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
