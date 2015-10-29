@@ -76,7 +76,10 @@ public class Bubble : MonoBehaviour
 		if (col.transform.gameObject.tag == "Player") 
 		{
 			reduceLifetime (2.0f);
-		} 
+            ContactPoint contact = col.contacts[0];
+            vel = findBounceVel(contact);
+
+        } 
 		else
 		{
 			if(col.transform.gameObject.tag == "Bubble")

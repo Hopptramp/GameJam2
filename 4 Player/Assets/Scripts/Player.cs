@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Player : MonoBehaviour 
 {
-	public float speed = 5;
+	public float inputScale = 5;
 	public float chargeRate = 2;
 	public float bubbleCooldown = 0.2f;
+    public bool jumpPressed;
 	private int playerID = 1;
 	private int playerInput = 0;
 	private Rigidbody rb;
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour
 
 		if (Input.GetButtonDown ("Jump" + input))
 		{
-			
+            jumpPressed = true;
 		}
 
 		float rightTrigger = Input.GetAxis ("RightTrigger" + input);
@@ -87,13 +88,19 @@ public class Player : MonoBehaviour
 		{
 			input += playerInput;
 		}
-		
+        
 		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
 
 		//float moveVertical = Input.GetAxis ("Vertical" + input);
-		
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, 0.0f);
-		rb.velocity = movement * speed; //may need a delta.time
+
+		GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
+        if (jumpPressed)
+        {
+            GetComponent<bubbleInteraction>().addAcceleration(new Vector3(0, 100, 0));
+            jumpPressed = false;
+        }
+		//Vector3 movement = new Vector3 (moveHorizontal, 0.0f, 0.0f);
+		//rb.velocity = movement * speed; //may need a delta.time
 	}
 
 	public void SetupPlayerID(int ID, int input)
