@@ -47,6 +47,11 @@ public class ProgressBar : MonoBehaviour
 	
 	}
 
+	public void SetProgress(float toValue)
+	{
+		barImage.fillAmount = toValue;
+	}
+
 	public bool DecreaseProgress(float rate)
 	{
 		//Decrease bar my float amount (May be changed to percent?)

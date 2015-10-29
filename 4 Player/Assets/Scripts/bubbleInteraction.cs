@@ -53,8 +53,7 @@ public class bubbleInteraction : MonoBehaviour
 	{
 		if ( col.transform.gameObject.tag != "Bubble") 
 		{
-			gravMod=0.0f;
-			vel.y = 0;
+			addAcceleration(-gravMod * grav);
 		}
         else
         {

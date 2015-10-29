@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 	public float inputScale = 5;
 	public float chargeRate = 2;
 	public float bubbleCooldown = 0.2f;
-    public bool jumpPressed;
+
 	private int playerID = 1;
 	private int playerInput = 0;
 	private Rigidbody rb;
@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
 	private ProgressBar bar;
 
 	private bool rightTriggerLastFrame = false;
+
+	public bool applyJumpOnImpact;
+	public float jumpTime;
 
 	//private bool playerActive = false;
 
@@ -33,6 +36,14 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (jumpTime > 0.0f) 
+		{
+			jumpTime = jumpTime - Time.deltaTime;
+		} 
+		else 
+		{
+			applyJumpOnImpact = false;
+		}
 		string input = null;
 		if(playerInput != 0)
 		{
@@ -46,11 +57,6 @@ public class Player : MonoBehaviour
 		{
 			float angle = Mathf.Atan2 (-moveHorizontal2, moveVertical2) * Mathf.Rad2Deg;
 			director.transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
-		}
-
-		if (Input.GetButtonDown ("Jump" + input))
-		{
-            jumpPressed = true;
 		}
 
 		float rightTrigger = Input.GetAxis ("RightTrigger" + input);
@@ -91,17 +97,38 @@ public class Player : MonoBehaviour
         
 		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
 
-		//float moveVertical = Input.GetAxis ("Vertical" + input);
-
 		GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
-        if (jumpPressed)
-        {
-            GetComponent<bubbleInteraction>().addAcceleration(new Vector3(0, 100, 0));
-            jumpPressed = false;
-        }
+
+		bool canJump = GetComponentInChildren<JumpReset> ().GetCanJump();
+		if (Input.GetButton ("Jump" + input) && canJump == true)
+		{
+			applyJumpOnImpact =true;
+			jumpTime = 	0.25f;
+		}
+
 		//Vector3 movement = new Vector3 (moveHorizontal, 0.0f, 0.0f);
 		//rb.velocity = movement * speed; //may need a delta.time
 	}
+
+	void OnCollisionEnter(Collision col)
+	{
+		if (applyJumpOnImpact == true) 
+		{
+			GetComponent<bubbleInteraction> ().addAcceleration (new Vector3 (0, 60, 0));
+			applyJumpOnImpact = false;
+		}
+	}
+
+	void OnCollisionStay (Collision col)
+	{
+		if (applyJumpOnImpact == true) 
+		{
+			GetComponent<bubbleInteraction> ().addAcceleration (new Vector3 (0, 60, 0));
+			applyJumpOnImpact = false;
+		}
+	}
+
+
 
 	public void SetupPlayerID(int ID, int input)
 	{

@@ -15,7 +15,10 @@ public class Bubble : MonoBehaviour
 
 	// spawn/decay param
 	public float lifetime = 10.0f;
+	private float startLifetime;
 	public float size = 1;
+
+	private ProgressBar bar;
 
 
 
@@ -23,12 +26,14 @@ public class Bubble : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		
+		bar = GetComponent<ProgressBar> ();
+		startLifetime = lifetime;
 	}
 
 	void Update()
 	{
 		reduceLifetime (Time.deltaTime);
+
 		// if the lifetime runs out
 		if (lifetime <= 0.0f)
 		{
@@ -46,6 +51,7 @@ public class Bubble : MonoBehaviour
 		size = _size;
 		lifetime = _lifetime;
 		transform.localScale = transform.localScale * size;
+		startLifetime = lifetime;
 	}
 
 
@@ -65,6 +71,7 @@ public class Bubble : MonoBehaviour
 	void reduceLifetime(float reduction)
 	{
 		lifetime = lifetime - reduction;
+		bar.SetProgress (lifetime/startLifetime);
 	}
 
 	// ----------------------------------------------------------------------------------------
