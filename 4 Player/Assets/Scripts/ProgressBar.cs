@@ -108,4 +108,16 @@ public class ProgressBar : MonoBehaviour
 			return false;
 		}
 	}
+
+	public void Flip()
+	{
+		Vector3 theScale = bar.transform.localScale;
+		theScale.x *= -1;
+		bar.transform.localScale = theScale;
+	}
+
+	public float GetProgress()
+	{
+		return barImage.fillAmount;
+	}
 }

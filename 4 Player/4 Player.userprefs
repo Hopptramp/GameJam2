@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ProgressBar.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Bubble.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player.cs" Line="183" Column="6" />
+      <File FileName="Assets\Scripts\Player.cs" Line="230" Column="5" />
       <File FileName="Assets\Scripts\PlayerControl.cs" Line="36" Column="3" />
-      <File FileName="Assets\Scripts\ProgressBar.cs" Line="20" Column="37" />
+      <File FileName="Assets\Scripts\Bubble.cs" Line="57" Column="21" />
+      <File FileName="Assets\Scripts\ProgressBar.cs" Line="119" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

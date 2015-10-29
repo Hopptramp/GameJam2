@@ -59,15 +59,6 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (jumpTime > 0.0f) 
-		{
-			jumpTime = jumpTime - Time.deltaTime;
-		} 
-		else 
-		{
-			applyJumpOnImpact = false;
-		}
-
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
 		//grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 		
@@ -84,55 +75,12 @@ public class Player : MonoBehaviour
 			input += playerInput;
 		}
 
-		//Managing the aim direction using right thumbsticks
-		float moveHorizontal2 = Input.GetAxis ("HorizontalRight" + input);
-		float moveVertical2 = Input.GetAxis ("VerticalRight" + input);
-		if(moveHorizontal2 != 0 || moveVertical2 != 0)
-		{
-			float angle = Mathf.Atan2 (-moveHorizontal2, moveVertical2) * Mathf.Rad2Deg;
-			director.transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
-		}
+		InputRotate (input);
 
-		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
-		float moveVertical = Input.GetAxis ("Vertical" + input);
-		if (moveHorizontal > 0 && !facingRight) 
-		{
-			// ... flip the player.
-			Flip ();
-		}
-		// Otherwise if the input is moving the player left and the player is facing right...
-		else if (moveHorizontal < 0 && facingRight) 
-		{
-			// ... flip the player.
-			Flip ();
-		}
+		InputChargeBubble (input);
 
-		float rightTrigger = Input.GetAxis ("RightTrigger" + input);
-		if (rightTrigger > 0) 
-		{
-			rightTriggerLastFrame = true;
-			//Only fire when not on cooldown
-			if(bar.ProgressOvertimeFinished() == true)
-			{
-				bar.IncreaseProgress (chargeRate * Time.deltaTime);
-			}
-		} 
-		else 
-		{
-			//If was holding right trigger and now have released (This is axis not button otherwise would have used GetButtonUp)
-			if(rightTriggerLastFrame == true)
-			{
-				//!!!FIRE THE BUBBLE!!!//
-				bar.ProgressOverTime(0, bubbleCooldown); //The progress bar is sorta managing the cooldown...ah well
-			}
-			rightTriggerLastFrame = false;
-		}
+		InputBlowBubble (input);
 
-		float leftTrigger = Input.GetAxis ("LeftTrigger" + input);
-		if (leftTrigger > 0) 
-		{
-
-		}
 	}
 
 	void FixedUpdate()
@@ -143,19 +91,11 @@ public class Player : MonoBehaviour
 			input += playerInput;
 		}
         
-		float moveHorizontal = Input.GetAxis ("Horizontal" + input);
-		
-		GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
+		InputMove (input);
 
-		bool canJump = GetComponentInChildren<JumpReset> ().GetCanJump();
-		if (Input.GetButton ("Jump" + input) && canJump == true)
-		{
-			applyJumpOnImpact =true;
-			jumpTime = 	0.25f;
-		}
+		InputJump (input);
+
 		
-		// The Speed animator parameter is set to the absolute value of the horizontal input.
-		anim.SetFloat("Speed", Mathf.Abs(moveHorizontal));
 
 		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
 	/*	if (moveHorizontal * rb.velocity.x < maxSpeed) {
@@ -211,6 +151,107 @@ public class Player : MonoBehaviour
 		//rb.velocity = movement * speed; //may need a delta.time
 	}
 
+	void InputMove(string _controller)
+	{
+		float moveHorizontal = Input.GetAxis ("Horizontal" + _controller);
+		
+		GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
+
+		if (moveHorizontal > 0 && !facingRight) 
+		{
+			// ... flip the player.
+			Flip ();
+		}
+		// Otherwise if the input is moving the player left and the player is facing right...
+		else if (moveHorizontal < 0 && facingRight) 
+		{
+			// ... flip the player.
+			Flip ();
+		}
+
+		// The Speed animator parameter is set to the absolute value of the horizontal input.
+		anim.SetFloat("Speed", Mathf.Abs(moveHorizontal));
+	}
+
+	void InputRotate(string _controller)
+	{
+		//Managing the aim direction using right thumbsticks
+		float moveHorizontal = Input.GetAxis ("HorizontalRight" + _controller);
+		float moveVertical = Input.GetAxis ("VerticalRight" + _controller);
+
+		//This is a fix for the rotater for when the scale causes it to flip
+		if (facingRight == false) 
+		{
+			moveHorizontal *= -1;
+		}
+
+		if(moveHorizontal != 0 || moveVertical != 0)
+		{
+			float angle = Mathf.Atan2 (-moveHorizontal, moveVertical) * Mathf.Rad2Deg;
+			director.transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
+		}
+	}
+
+	void InputJump(string _controller)
+	{
+		if (jumpTime > 0.0f) 
+		{
+			jumpTime = jumpTime - Time.deltaTime;
+		} 
+		else 
+		{
+			applyJumpOnImpact = false;
+		}
+
+		bool canJump = GetComponentInChildren<JumpReset> ().GetCanJump();
+		if (Input.GetButton ("Jump" + _controller) && canJump == true)
+		{
+			applyJumpOnImpact =true;
+			jumpTime = 	0.25f;
+		}
+	}
+
+	void InputChargeBubble(string _controller)
+	{
+		float rightTrigger = Input.GetAxis ("RightTrigger" + _controller);
+		if (rightTrigger > 0) 
+		{
+			rightTriggerLastFrame = true;
+			//Only fire when not on cooldown
+			if(bar.ProgressOvertimeFinished() == true)
+			{
+				bar.IncreaseProgress (chargeRate * Time.deltaTime);
+			}
+		} 
+		else 
+		{
+			//If was holding right trigger and now have released (This is axis not button otherwise would have used GetButtonUp)
+			if(rightTriggerLastFrame == true)
+			{
+				//!!!FIRE THE BUBBLE!!!//
+				Vector3 direction = director.transform.rotation * Vector3.up * 5;
+				SpawnBubble (direction + transform.position);
+				bar.ProgressOverTime(0, bubbleCooldown); //The progress bar is sorta managing the cooldown...ah well
+			}
+			rightTriggerLastFrame = false;
+		}
+
+	}
+
+	void InputBlowBubble(string _controller)
+	{
+		float leftTrigger = Input.GetAxis ("LeftTrigger" + _controller);
+		if (leftTrigger > 0) 
+		{
+			
+		}
+	}
+
+	void SpawnBubble(Vector3 location)
+	{
+		GameObject bubble = Instantiate (bubblePrefab, location, Quaternion.identity) as GameObject;
+		bubble.GetComponent<Bubble> ().AssignParameters (bar.GetProgress());
+	}
 
 	void OnCollisionEnter(Collision col)
 	{
@@ -253,6 +294,12 @@ public class Player : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+
+		//theScale = director.transform.localScale;
+		//theScale.x *= -1;
+		//director.transform.localScale = theScale;
+
+		bar.Flip ();
 	}
 
 	public void SetupPlayerID(int ID, int input)

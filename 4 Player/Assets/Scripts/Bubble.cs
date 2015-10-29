@@ -17,6 +17,7 @@ public class Bubble : MonoBehaviour
 	public float lifetime = 10.0f;
 	private float startLifetime;
 	public float size = 1;
+	public float chargeMultiplier = 20.0f; //Max lifetime/scale by default is 1sec/0.5scale (value of 20 makes max 20sec/10scale)
 
 	private ProgressBar bar;
 
@@ -46,10 +47,18 @@ public class Bubble : MonoBehaviour
 	// Spawning code (below)
 
 	// use this function to assign all parameters of bubble from player
-	public void assignParameters(float _lifetime, float _size)
+	public void AssignParameters(float _charge)
 	{
-		size = _size;
-		lifetime = _lifetime;
+		float scaledCharge = (((Mathf.Pow ((_charge-0.5f),3.0f)*5)+0.5f)*chargeMultiplier);
+
+		//Perhaps hard coded unique setup for the bullet balloons?
+		if (_charge < 0.2) 
+		{
+			scaledCharge = 1;
+		}
+
+		lifetime = scaledCharge;
+		size = scaledCharge / 2;;
 		transform.localScale = transform.localScale * size;
 		startLifetime = lifetime;
 	}
