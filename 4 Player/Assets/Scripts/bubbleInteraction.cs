@@ -9,7 +9,7 @@ public class bubbleInteraction : MonoBehaviour
 	float bounceFactor = 1.0f;
     public float bounceDivisor = 2.0f;
 	public Vector3 vel = Vector3.zero;
-	Vector3 acc = Vector3.zero;
+	public Vector3 acc = Vector3.zero;
 	public float drag = 0.1f; 
 	float dt;
 	public float speed = 1.0f;
@@ -134,4 +134,11 @@ public class bubbleInteraction : MonoBehaviour
     {
         addAcceleration(-gravMod * grav);
     }
+
+	public Vector3 GetAccel()
+	{
+		return acc;
+	}
+
+
 }

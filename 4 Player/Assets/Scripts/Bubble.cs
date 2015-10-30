@@ -21,14 +21,25 @@ public class Bubble : MonoBehaviour
 
 	private ProgressBar bar;
 
-
+	private bool frameSpawned = true;
+	private int frameCounter = 0;
 
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		bar = GetComponent<ProgressBar> ();
 		startLifetime = lifetime;
+
+		//Prevent bubbles from colliding with walls
+		for (int i = 0; i < 3; ++i)
+		{
+			string name = "Scroller/Borders/Boundary" + (i + 1);
+			Physics.IgnoreCollision (GameObject.Find (name).GetComponent<BoxCollider> (), GetComponent<SphereCollider> ());
+		}
+
+
+
 	}
 
 	void Update()
@@ -52,10 +63,12 @@ public class Bubble : MonoBehaviour
 		//Scaled charge uses power of 3 graph to detrmine lifetime and size
 		float scaledCharge = (((Mathf.Pow ((_charge-0.5f),3.0f)*5)+0.5f)*chargeMultiplier);
 
+		float smallBubbleMultiplier = 1.0f;
 		//Perhaps hard coded unique setup for the bullet balloons?
 		if (_charge < 0.2) 
 		{
 			scaledCharge = 1;
+			smallBubbleMultiplier = 20.0f;
 		}
 
 		lifetime = scaledCharge;
@@ -66,7 +79,11 @@ public class Bubble : MonoBehaviour
 
 		//Set up spawn distance from player based on size
 		transform.position = _origin + _direction * Mathf.Lerp(2.0f, 8.0f, scaledCharge/chargeMultiplier);
-
+		vel += (_direction * smallBubbleMultiplier);
+		
+		bar.ChangePosition (new Vector3 (transform.position.x, transform.position.y, -size / 2));
+	
+	
 	}
 
 
@@ -76,7 +93,7 @@ public class Bubble : MonoBehaviour
 	// Decay/death code (below)
 
 	// destroy the object
-	void destroyBubble()
+	public void destroyBubble()
 	{
 		DestroyObject (gameObject);
 
@@ -95,6 +112,19 @@ public class Bubble : MonoBehaviour
 
 	void OnCollisionEnter (Collision col)
 	{
+		if (frameSpawned == true) 
+		{
+			GameObject other = col.transform.gameObject;
+			if(other.tag == "Bubble")
+			{
+				if(size > other.GetComponent<Bubble>().size)
+				{
+					//other.GetComponent<Bubble>().destroyBubble();
+					return;
+				}
+			}
+		}
+
 		if (col.transform.gameObject.tag == "Player") 
 		{
 			reduceLifetime (2.0f);
@@ -155,6 +185,16 @@ public class Bubble : MonoBehaviour
 
 		acc = acc * speed;
 		UpdatePos ();
+
+		//Determines whether it is the frame that an object just spawned
+		if (frameSpawned == true) 
+		{
+			if(frameCounter > 1)
+			{
+				frameSpawned = false;
+			}
+			++frameCounter;
+		}
 	}
 
 	void UpdatePos()

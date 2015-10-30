@@ -14,9 +14,14 @@ public class ProgressBar : MonoBehaviour
 	private float overTimeStart;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		bar = Instantiate(barPrefab, transform.position, Quaternion.identity) as GameObject;
+
+	}
+
+	void Start()
+	{
 		bar.transform.SetParent(transform);
 		barImage = bar.transform.GetChild(0).GetComponent<Image>();
 	}
@@ -112,5 +117,10 @@ public class ProgressBar : MonoBehaviour
 	public float GetProgress()
 	{
 		return barImage.fillAmount;
+	}
+
+	public void ChangePosition(Vector3 _pos)
+	{
+		bar.transform.position = _pos;
 	}
 }
