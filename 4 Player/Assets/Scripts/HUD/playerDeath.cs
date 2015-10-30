@@ -18,7 +18,7 @@ public class playerDeath : MonoBehaviour {
 	{
         // if the height drops below certain point - reset the height and increment the death
 		height = gameObject.transform.position.y;
-		if (height <= 1.8)
+		if (height <= 2)
 		{
 			transform.position = new Vector3(0, 30, 0);
 			++timesDied;
