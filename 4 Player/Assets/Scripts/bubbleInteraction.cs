@@ -6,7 +6,7 @@ public class bubbleInteraction : MonoBehaviour
 
 	// physics parameters
 
-	public float bounceFactor = 1.0f;
+	float bounceFactor = 1.0f;
     public float bounceDivisor = 2.0f;
 	public Vector3 vel = Vector3.zero;
 	Vector3 acc = Vector3.zero;
@@ -16,11 +16,14 @@ public class bubbleInteraction : MonoBehaviour
 	Vector3 grav = new Vector3(0, -1, 0);
 	public float gravMod = 1.0f;
    
+   
 
     public float dragX = 0.5f;
     public bool inputRecieved = false;
 
-   
+    public bool disableDrag = false;
+    public float dragDisableTime;
+           
 
     public float MAX_X_SPEED = 30.0f;
     public float MAX_Y_SPEED = 45.0f;
@@ -37,7 +40,17 @@ public class bubbleInteraction : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	
+        if (disableDrag)
+        {
+            if(dragDisableTime< 0.5f)
+            {
+                dragDisableTime += Time.deltaTime;
+            }
+            else
+            {
+                disableDrag = false;
+            }
+        }
 	}
 
 	void OnCollisionEnter (Collision col)
@@ -45,14 +58,18 @@ public class bubbleInteraction : MonoBehaviour
 		if (col.transform.gameObject.tag == "Bubble") 
 		{
 			ContactPoint contact = col.contacts [0];
-            bounceFactor = col.transform.gameObject.GetComponent<Bubble>().size / bounceDivisor;
+            Bubble bubble = col.transform.gameObject.GetComponent<Bubble>();
+            bounceFactor = bubble.size / bounceDivisor;          
             vel = findBounceVel (contact);
             bounceFactor = 1;
+            disableDrag = true;
+            dragDisableTime = 0.0f;
+
 		} 
 		else 
 		{
 			ContactPoint contact = col.contacts [0];
-            bounceFactor = 0.1f;
+            bounceFactor = 0.5f;
 			vel = findBounceVel (contact);
             bounceFactor = 1.0f;
 		}
@@ -62,7 +79,8 @@ public class bubbleInteraction : MonoBehaviour
 		if (col.transform.gameObject.tag == "Bubble")
         {
             ContactPoint contact = col.contacts[0];
-            bounceFactor = col.transform.gameObject.GetComponent<Bubble>().size / bounceDivisor;
+            float objectSize = col.transform.gameObject.GetComponent<Bubble>().size;
+            bounceFactor = (objectSize /bounceDivisor) + 1.0f;
             vel = findBounceVel(contact);
             bounceFactor = 1;
         }
@@ -78,31 +96,29 @@ public class bubbleInteraction : MonoBehaviour
 	{
 		dt = Time.deltaTime;
 
-
-        //addAcceleration (-(drag * vel));
-        if (!inputRecieved)
+       
+        if (!inputRecieved && !disableDrag)
         {
             addAcceleration(-(dragX * (new Vector3(vel.x, 0, 0))));
         }
 
 		addAcceleration (gravMod * grav);
-        
 
 		acc = acc * speed;
 		UpdatePos ();
-		//gravMod = 1.0f;
-	
 
 	}
 	
 	void UpdatePos()
 	{
 
-        //vel.x = Mathf.Clamp(vel.x, -MAX_SPEED, MAX_SPEED);
-		Vector3 newPos = transform.position + dt * vel;
-		Vector3 newVel = vel + dt * acc;
-		transform.position = newPos;
-		vel = newVel;
+        
+        Vector3 newPos = transform.position + dt * vel;
+        Vector3 newVel = vel + dt * acc;
+        transform.position = newPos;
+        vel = newVel;
+
+
         vel.x = Mathf.Clamp(vel.x, -MAX_X_SPEED, MAX_X_SPEED);
         vel.y = Mathf.Clamp(vel.y, -MAX_Y_SPEED, MAX_Y_SPEED);
 

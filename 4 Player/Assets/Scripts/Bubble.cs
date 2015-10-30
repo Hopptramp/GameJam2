@@ -99,7 +99,9 @@ public class Bubble : MonoBehaviour
 		{
 			reduceLifetime (2.0f);
             ContactPoint contact = col.contacts[0];
-            vel = findBounceVel(contact);
+            bubbleInteraction playersMovement = col.transform.gameObject.GetComponent<bubbleInteraction>();
+            vel = playersMovement.vel / size;
+            //vel = findBounceVel(contact);
 
         } 
 		else
