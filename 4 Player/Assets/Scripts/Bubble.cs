@@ -47,8 +47,9 @@ public class Bubble : MonoBehaviour
 	// Spawning code (below)
 
 	// use this function to assign all parameters of bubble from player
-	public void AssignParameters(float _charge)
+	public void AssignParameters(float _charge, Vector3 _origin, Vector3 _direction)
 	{
+		//Scaled charge uses power of 3 graph to detrmine lifetime and size
 		float scaledCharge = (((Mathf.Pow ((_charge-0.5f),3.0f)*5)+0.5f)*chargeMultiplier);
 
 		//Perhaps hard coded unique setup for the bullet balloons?
@@ -58,9 +59,14 @@ public class Bubble : MonoBehaviour
 		}
 
 		lifetime = scaledCharge;
-		size = scaledCharge / 2;;
-		transform.localScale = transform.localScale * size;
 		startLifetime = lifetime;
+
+		size = scaledCharge / 2;
+		transform.localScale = transform.localScale * size;
+
+		//Set up spawn distance from player based on size
+		transform.position = _origin + _direction * Mathf.Lerp(2.0f, 8.0f, scaledCharge/chargeMultiplier);
+
 	}
 
 

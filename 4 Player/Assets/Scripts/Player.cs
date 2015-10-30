@@ -240,8 +240,8 @@ public class Player : MonoBehaviour
 			if(rightTriggerLastFrame == true)
 			{
 				//!!!FIRE THE BUBBLE!!!//
-				Vector3 direction = director.transform.rotation * Vector3.up * 5;
-				SpawnBubble (direction + transform.position);
+				Vector3 direction = director.transform.rotation * Vector3.up;
+				SpawnBubble (transform.position, direction);
 				bar.ProgressOverTime(0, bubbleCooldown); //The progress bar is sorta managing the cooldown...ah well
 			}
 			rightTriggerLastFrame = false;
@@ -258,10 +258,10 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	void SpawnBubble(Vector3 location)
+	void SpawnBubble(Vector3 _origin, Vector3 _direction)
 	{
-		GameObject bubble = Instantiate (bubblePrefab, location, Quaternion.identity) as GameObject;
-		bubble.GetComponent<Bubble> ().AssignParameters (bar.GetProgress());
+		GameObject bubble = Instantiate (bubblePrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		bubble.GetComponent<Bubble> ().AssignParameters (bar.GetProgress(), _origin, _direction);
 	}
 
 	void OnCollisionEnter(Collision col)
@@ -305,12 +305,6 @@ public class Player : MonoBehaviour
 		Vector3 theScale = transform.Find("SpriteObject").transform.localScale;
 		theScale.x *= -1;
 		transform.Find("SpriteObject").transform.localScale = theScale;
-
-		//theScale = director.transform.localScale;
-		//theScale.x *= -1;
-		//director.transform.localScale = theScale;
-
-		//bar.Flip ();
 	}
 
 	public void SetupPlayerID(int ID, int input)
