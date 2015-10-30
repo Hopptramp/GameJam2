@@ -15,7 +15,15 @@ public class bubbleInteraction : MonoBehaviour
 	public float speed = 1.0f;
 	Vector3 grav = new Vector3(0, -1, 0);
 	public float gravMod = 1.0f;
+   
+
     public float dragX = 0.5f;
+    public bool inputRecieved = false;
+
+   
+
+    public float MAX_X_SPEED = 30.0f;
+    public float MAX_Y_SPEED = 45.0f;
 
 	float prevY;
 
@@ -51,11 +59,7 @@ public class bubbleInteraction : MonoBehaviour
 	}
 	void OnCollisionStay(Collision col)
 	{
-		if ( col.transform.gameObject.tag != "Bubble") 
-		{
-			addAcceleration(-gravMod * grav);
-		}
-        else
+		if (col.transform.gameObject.tag == "Bubble")
         {
             ContactPoint contact = col.contacts[0];
             bounceFactor = col.transform.gameObject.GetComponent<Bubble>().size / bounceDivisor;
@@ -76,29 +80,42 @@ public class bubbleInteraction : MonoBehaviour
 
 
         //addAcceleration (-(drag * vel));
-        addAcceleration(-(dragX * (new Vector3(vel.x, 0 , 0))));
+        if (!inputRecieved)
+        {
+            addAcceleration(-(dragX * (new Vector3(vel.x, 0, 0))));
+        }
 
 		addAcceleration (gravMod * grav);
         
 
 		acc = acc * speed;
 		UpdatePos ();
-		gravMod = 1.0f;
+		//gravMod = 1.0f;
 	
 
 	}
 	
 	void UpdatePos()
 	{
+
+        //vel.x = Mathf.Clamp(vel.x, -MAX_SPEED, MAX_SPEED);
 		Vector3 newPos = transform.position + dt * vel;
 		Vector3 newVel = vel + dt * acc;
 		transform.position = newPos;
 		vel = newVel;
-		acc = Vector3.zero;
+        vel.x = Mathf.Clamp(vel.x, -MAX_X_SPEED, MAX_X_SPEED);
+        vel.y = Mathf.Clamp(vel.y, -MAX_Y_SPEED, MAX_Y_SPEED);
+
+
+        acc = Vector3.zero;
 
 	}
 	public void addAcceleration(Vector3 addition)
 	{
 		acc = acc + addition;
 	}
+    public void counterGrav ()
+    {
+        addAcceleration(-gravMod * grav);
+    }
 }

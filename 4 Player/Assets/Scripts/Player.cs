@@ -154,8 +154,19 @@ public class Player : MonoBehaviour
 	void InputMove(string _controller)
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal" + _controller);
+        
+        if (moveHorizontal != 0.0f)
+        { 
+            GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal * inputScale, 0, 0));
+            GetComponent<bubbleInteraction>().inputRecieved = true;
+
+        }
+        else
+        {
+            GetComponent<bubbleInteraction>().inputRecieved = false;
+        }
 		
-		GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
+		//GetComponent<bubbleInteraction>().addAcceleration(new Vector3(moveHorizontal*inputScale, 0 , 0));
 
 		if (moveHorizontal > 0 && !facingRight) 
 		{

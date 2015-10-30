@@ -8,6 +8,7 @@ public class JumpReset : MonoBehaviour
 	void OnCollisionStay (Collision col)
 	{
 		canJump = true;
+        transform.parent.gameObject.GetComponent<bubbleInteraction>().counterGrav();
 	}
 
 	void OnCollisionExit (Collision col)
