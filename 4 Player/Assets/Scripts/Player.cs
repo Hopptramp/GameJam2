@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 	public bool applyJumpOnImpact;
 	public float jumpTime;
 
+	private bool movementIsPaused = false;
+
 	//private bool playerActive = false;
 
 	void Awake()
@@ -75,25 +77,31 @@ public class Player : MonoBehaviour
 			input += playerInput;
 		}
 
-		InputRotate (input);
+		if (movementIsPaused == false) 
+		{
+			InputRotate (input);
 
-		InputChargeBubble (input);
+			InputChargeBubble (input);
 
-		InputBlowBubble (input);
+			InputBlowBubble (input);
+		}
 
 	}
 
 	void FixedUpdate()
 	{
 		string input = null;
-		if(playerInput != 0)
+		if (playerInput != 0) 
 		{
 			input += playerInput;
 		}
         
-		InputMove (input);
+		if (movementIsPaused == false) 
+		{
+			InputMove (input);
 
-		InputJump (input);
+			InputJump (input);
+		}
 
 		
 
@@ -318,4 +326,10 @@ public class Player : MonoBehaviour
     {
         return playerID;
     }
+
+	public void SetMovementIsPaused(bool _b)
+	{
+		movementIsPaused = _b;
+		GetComponent<bubbleInteraction> ().SetMovementIsPaused (_b);
+	}
 }

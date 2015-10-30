@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BackgroundScroll : MonoBehaviour {
+public class VisualBackgroundScroller : MonoBehaviour 
+{
 
 
 
@@ -13,12 +14,14 @@ public class BackgroundScroll : MonoBehaviour {
 	Transform destination;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 
 
 		if(transform.position.y < end.position.y)
@@ -27,5 +30,5 @@ public class BackgroundScroll : MonoBehaviour {
 		}
 
 		transform.Translate(0,-speed *Time.deltaTime,0);
-}
+	}
 }

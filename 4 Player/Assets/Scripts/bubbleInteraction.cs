@@ -30,6 +30,8 @@ public class bubbleInteraction : MonoBehaviour
 
 	float prevY;
 
+	private bool movementIsPaused = false;
+
 	
 	// Use this for initialization
 	void Start () 
@@ -96,16 +98,18 @@ public class bubbleInteraction : MonoBehaviour
 	{
 		dt = Time.deltaTime;
 
+		if (movementIsPaused == false) 
+		{
        
-        if (!inputRecieved && !disableDrag)
-        {
-            addAcceleration(-(dragX * (new Vector3(vel.x, 0, 0))));
-        }
+			if (!inputRecieved && !disableDrag) {
+				addAcceleration (-(dragX * (new Vector3 (vel.x, 0, 0))));
+			}
 
-		addAcceleration (gravMod * grav);
+			addAcceleration (gravMod * grav);
 
-		acc = acc * speed;
-		UpdatePos ();
+			acc = acc * speed;
+			UpdatePos ();
+		}
 
 	}
 	
@@ -138,6 +142,11 @@ public class bubbleInteraction : MonoBehaviour
 	public Vector3 GetAccel()
 	{
 		return acc;
+	}
+
+	public void SetMovementIsPaused(bool _b)
+	{
+		movementIsPaused = _b;
 	}
 
 

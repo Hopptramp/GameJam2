@@ -24,6 +24,9 @@ public class Bubble : MonoBehaviour
 	private bool frameSpawned = true;
 	private int frameCounter = 0;
 
+	private bool lifetimeIsPaused = false;
+	private bool movementIsPaused = false;
+
 
 	// Use this for initialization
 	void Awake ()
@@ -102,8 +105,11 @@ public class Bubble : MonoBehaviour
 
 	void reduceLifetime(float reduction)
 	{
-		lifetime = lifetime - reduction;
-		bar.SetProgress (lifetime/startLifetime);
+		if (lifetimeIsPaused == false) 
+		{
+			lifetime = lifetime - reduction;
+			bar.SetProgress (lifetime / startLifetime);
+		}
 	}
 
 	// ----------------------------------------------------------------------------------------
@@ -179,12 +185,17 @@ public class Bubble : MonoBehaviour
 	void FixedUpdate () 
 	{
 		dt = Time.deltaTime;
-		acc = testAcc;
 
-		addAcceleration (-(drag * vel));
+		//Down apply forces and movement while object is paused
+		if (movementIsPaused == false) 
+		{
+			acc = testAcc;
 
-		acc = acc * speed;
-		UpdatePos ();
+			addAcceleration (-(drag * vel));
+
+			acc = acc * speed;
+			UpdatePos ();
+		}
 
 		//Determines whether it is the frame that an object just spawned
 		if (frameSpawned == true) 
@@ -208,6 +219,16 @@ public class Bubble : MonoBehaviour
 	public void addAcceleration(Vector3 addition)
 	{
 		acc = acc + addition;
+	}
+
+	public void SetLifetimeIsPaused(bool _b)
+	{
+		lifetimeIsPaused = _b;
+	}
+
+	public void SetMovementIsPaused(bool _b)
+	{
+		movementIsPaused = _b;
 	}
 
 
