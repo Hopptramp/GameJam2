@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 	{
 		// Setting up references.
 		groundCheck = transform.Find("groundCheck");
-		anim = GetComponent<Animator>();
+		anim = transform.Find("SpriteObject").GetComponent<Animator>();
 	}
 
 	// Use this for initialization
@@ -180,10 +180,10 @@ public class Player : MonoBehaviour
 		float moveVertical = Input.GetAxis ("VerticalRight" + _controller);
 
 		//This is a fix for the rotater for when the scale causes it to flip
-		if (facingRight == false) 
-		{
-			moveHorizontal *= -1;
-		}
+		//if (facingRight == false) 
+		//{
+			//moveHorizontal *= -1;
+		//}
 
 		if(moveHorizontal != 0 || moveVertical != 0)
 		{
@@ -291,15 +291,15 @@ public class Player : MonoBehaviour
 		facingRight = !facingRight;
 		
 		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
+		Vector3 theScale = transform.Find("SpriteObject").transform.localScale;
 		theScale.x *= -1;
-		transform.localScale = theScale;
+		transform.Find("SpriteObject").transform.localScale = theScale;
 
 		//theScale = director.transform.localScale;
 		//theScale.x *= -1;
 		//director.transform.localScale = theScale;
 
-		bar.Flip ();
+		//bar.Flip ();
 	}
 
 	public void SetupPlayerID(int ID, int input)
