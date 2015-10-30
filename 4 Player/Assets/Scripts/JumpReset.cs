@@ -5,13 +5,16 @@ public class JumpReset : MonoBehaviour
 {
 	public bool canJump = true;
 
-	void OnCollisionStay (Collision col)
+	void OnTriggerStay (Collider col)
 	{
-		canJump = true;
-        transform.parent.gameObject.GetComponent<bubbleInteraction>().counterGrav();
+		//if(col.gameObject.transform.tag != "Player")
+		//{
+			canJump = true;
+	        transform.parent.gameObject.GetComponent<bubbleInteraction>().counterGrav();
+		//}
 	}
 
-	void OnCollisionExit (Collision col)
+	void OnTriggerExit (Collider col)
 	{
 		canJump = false;
 	}

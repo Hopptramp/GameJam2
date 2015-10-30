@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
 		} 
 		else 
 		{
-			applyJumpOnImpact = false;
+		//	applyJumpOnImpact = false;
 		}
 
 		bool canJump = GetComponentInChildren<JumpReset> ().GetCanJump();
