@@ -312,4 +312,10 @@ public class Player : MonoBehaviour
 		playerID = ID;
 		playerInput = input;
 	}
+
+    // needed to get the playerID for showing no. of deaths (couldn't think of a better way?)
+    public int returnPlayerID()
+    {
+        return playerID;
+    }
 }
