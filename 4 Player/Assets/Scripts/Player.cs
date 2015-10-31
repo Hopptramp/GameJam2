@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour 
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
 	private int playerID = 1;
 	private int playerInput = 0;
+	private int playerDeaths = 0;
 	//private Rigidbody rb;
 
 	public GameObject directorPrefab;
@@ -331,5 +332,15 @@ public class Player : MonoBehaviour
 	{
 		movementIsPaused = _b;
 		GetComponent<bubbleInteraction> ().SetMovementIsPaused (_b);
+	}
+
+	public int GetPlayerDeath()
+	{
+		return playerDeaths;
+	}
+
+	public void EditPlayerDeath(int _i)
+	{
+		playerDeaths += _i;
 	}
 }

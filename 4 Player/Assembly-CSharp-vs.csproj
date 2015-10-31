@@ -51,9 +51,9 @@
      <Compile Include="Assets\Scripts\BubbleAnimation.cs" />
      <Compile Include="Assets\Scripts\ConstantData.cs" />
      <Compile Include="Assets\Scripts\ControllerManager.cs" />
-     <Compile Include="Assets\Scripts\HUD\HuD.cs" />
-     <Compile Include="Assets\Scripts\HUD\playerDeath.cs" />
-     <Compile Include="Assets\Scripts\HUD\scorescreen.cs" />
+     <Compile Include="Assets\Scripts\HUD\DeathZone.cs" />
+     <Compile Include="Assets\Scripts\HUD\HUDClock.cs" />
+     <Compile Include="Assets\Scripts\HUD\ScoreTracker.cs" />
      <Compile Include="Assets\Scripts\JumpReset.cs" />
      <Compile Include="Assets\Scripts\LevelScroller.cs" />
      <Compile Include="Assets\Scripts\LevelStart.cs" />
