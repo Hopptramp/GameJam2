@@ -144,21 +144,40 @@ public class Bubble : MonoBehaviour
 		{
 			if(col.transform.gameObject.tag == "Bubble")
 			{
-				float testbounce; 
-				testbounce = col.transform.gameObject.GetComponent<Bubble>().size / size;
+				float testbounce;
+                Bubble colScript = col.transform.gameObject.GetComponent<Bubble>();
+
+                if (colScript.size == 0.5f)
+                {
+                    {
+                        float max; 
+                        if (Vector3.Distance(Vector3.zero, colScript.vel)> 40.0f)
+                        {
+                            max = 40.0f;
+                        }
+                        else
+                        {
+                            max = Vector3.Distance(Vector3.zero, colScript.vel);
+                        }
+                        float reduction = max / 8;
+                        reduceLifetime(reduction);
+                    }
+                }
+
+                testbounce = colScript.size / size;
 
 				ContactPoint contact = col.contacts [0];
 				vel =  testbounce * findBounceVel (contact);
 
 				if (Vector3.Distance(Vector3.zero, vel) <0.5f)				
 				{
-					if (!col.transform.gameObject.GetComponent<Bubble>().velReversed)
+					if (!colScript.velReversed)
 					{
-						vel = col.transform.gameObject.GetComponent<Bubble>().vel * testbounce;
+						vel = colScript.vel * testbounce;
 					}
 					else
 					{
-						vel = col.transform.gameObject.GetComponent<Bubble>().vel * - testbounce;
+						vel = colScript.vel * - testbounce;
 					}
 				}
 

@@ -208,7 +208,9 @@ public class Player : MonoBehaviour
 		{
 			float angle = Mathf.Atan2 (-moveHorizontal, moveVertical) * Mathf.Rad2Deg;
 			director.transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
-		}
+            transform.Find("Pivot").transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle- 180));
+
+        }
 	}
 
 	void InputJump(string _controller)
@@ -262,8 +264,13 @@ public class Player : MonoBehaviour
 		float leftTrigger = Input.GetAxis ("LeftTrigger" + _controller);
 		if (leftTrigger > 0) 
 		{
-			
+            GetComponentInChildren<BlowScript>().blowActive = true;
+
 		}
+        else
+        {
+            GetComponentInChildren<BlowScript>().blowActive = false;
+        }
 	}
 
 	void SpawnBubble(Vector3 _origin, Vector3 _direction)
