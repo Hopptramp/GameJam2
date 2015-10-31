@@ -12,6 +12,9 @@ public class HUDClock : MonoBehaviour
 	private bool isTimerPaused = true;
 
     public float totalTime = 60; //start time in seconds
+	private float startTime;
+
+	private LevelScroller scrollerScript;
 
     // Use this for initialization
     void Start()
@@ -22,7 +25,8 @@ public class HUDClock : MonoBehaviour
         //{
         //    players[i] = GameObject.FindGameObjectWithTag("GlobalConstant").GetComponent<ConstantData>().playerController[i];
         //}
-
+		scrollerScript = GameObject.Find ("Scroller").GetComponent<LevelScroller>();
+		startTime = totalTime;
 		counterText = transform.Find ("Clock").GetComponent<Text> ();
 		minutes = (int)Mathf.Floor(totalTime / 60f);
 		seconds = totalTime % 60f;
@@ -57,6 +61,8 @@ public class HUDClock : MonoBehaviour
 		seconds = totalTime % 60f;
 
 		PutTimeToScreen ();
+
+		scrollerScript.UpdateBackgroundFromTime (totalTime, startTime);
         
         if (seconds <= 0.2 && minutes <= 0)
         {

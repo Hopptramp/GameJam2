@@ -29,4 +29,11 @@ public class LevelScroller : MonoBehaviour
 	{
 		canScroll = _b;
 	}
+
+	public void UpdateBackgroundFromTime (float _currentTime, float _startTime)
+	{
+		Vector2 offset = new Vector2(0,0);
+		offset.y = Mathf.Lerp(0.0f,0.9f,1-(_currentTime/_startTime));
+		transform.Find ("MainBackground").GetComponent<Renderer> ().material.SetTextureOffset ("_MainTex",offset);
+	}
 }
