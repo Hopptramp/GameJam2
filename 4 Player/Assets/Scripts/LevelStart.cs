@@ -47,7 +47,8 @@ public class LevelStart : MonoBehaviour
 						}
 					}
 					GetComponent<PlayerManager> ().SetAllPlayerMovement(false);
-					//////////START THE IN GAME TIMER//////////
+					string name = "HUDCanvas";
+					GameObject.Find (name).GetComponent<HUDClock>().SetTimerPaused(false);
 					hasGameBegun = true;
 				}
 			}
