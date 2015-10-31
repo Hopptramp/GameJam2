@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\ControllerManager.cs" />
      <Compile Include="Assets\Scripts\HUD\HuD.cs" />
      <Compile Include="Assets\Scripts\HUD\playerDeath.cs" />
+     <Compile Include="Assets\Scripts\HUD\scorescreen.cs" />
      <Compile Include="Assets\Scripts\JumpReset.cs" />
      <Compile Include="Assets\Scripts\LevelScroller.cs" />
      <Compile Include="Assets\Scripts\LevelStart.cs" />

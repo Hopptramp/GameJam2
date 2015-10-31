@@ -15,7 +15,7 @@ public class HuD : MonoBehaviour
 
     public Text[] playerDeaths;
 
-    float totalTime = 2;
+    float totalTime = 1;
 
     // Use this for initialization
     void Start()
@@ -55,6 +55,10 @@ public class HuD : MonoBehaviour
         else
         {
             counterText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        }
+        if (seconds <= 0.2 && minutes <= 0)
+        {
+            Application.LoadLevel("EndGame");
         }
         if (seconds <= 0)
         {
