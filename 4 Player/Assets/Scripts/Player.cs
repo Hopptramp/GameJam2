@@ -281,6 +281,7 @@ public class Player : MonoBehaviour
 		GameObject bubble = Instantiate (bubblePrefab, Vector3.zero, Quaternion.identity) as GameObject;
         bool blow = (Input.GetAxis("LeftTrigger" + _controller)>0);
         bubble.GetComponent<Bubble> ().AssignParameters (bar.GetProgress(), _origin, _direction, blow);
+		//GameObject.Find ("Sound").GetComponent<Sounds> ().bubblePop ();
 	}
 
 	void OnCollisionEnter(Collision col)

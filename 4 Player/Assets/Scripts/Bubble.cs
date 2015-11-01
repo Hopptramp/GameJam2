@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using System.Collections;
+
+[RequireComponent(typeof(AudioSource))]
 
 public class Bubble : MonoBehaviour 
 {
@@ -19,7 +22,8 @@ public class Bubble : MonoBehaviour
 	public float size = 1;
 	public float chargeMultiplier = 20.0f; //Max lifetime/scale by default is 1sec/0.5scale (value of 20 makes max 20sec/10scale)
 
-    
+
+
     [SerializeField]float maxVelLifeReductionFactor = 40.0f;
     
 
@@ -44,9 +48,11 @@ public class Bubble : MonoBehaviour
 			string name = "Scroller/Borders/Boundary" + (i + 1);
 			Physics.IgnoreCollision (GameObject.Find (name).GetComponent<BoxCollider> (), GetComponent<SphereCollider> ());
 		}
+	}
 
-
-
+	void Start()
+	{
+		GameObject.Find ("Sound").GetComponent<Sounds> ().bubblePop (size);
 	}
 
 	void Update()
@@ -56,6 +62,7 @@ public class Bubble : MonoBehaviour
 		// if the lifetime runs out
 		if (lifetime <= 0.0f)
 		{
+			GameObject.Find ("Sound").GetComponent<Sounds> ().bubblePop (size);
 			destroyBubble();
 		}
 		velReversed = false;
@@ -140,9 +147,8 @@ public class Bubble : MonoBehaviour
     // destroy the object
     public void destroyBubble()
 	{
+		//GameObject.Find ("Sound").GetComponent<Sounds> ().bubblePop ();
 		DestroyObject (gameObject);
-
-		// sound effect of bubble popping?
 	}
 
 	void reduceLifetime(float reduction)
