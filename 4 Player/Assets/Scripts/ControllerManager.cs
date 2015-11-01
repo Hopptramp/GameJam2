@@ -41,7 +41,6 @@ public class ControllerManager : MonoBehaviour
 						playerController[playerNumber] = i + 1;
 						string text = "Player " + (playerNumber + 1) + "\nReady";
 						GetComponent<ReadyMenu>().ChangeText(playerNumber, text);
-						GetComponent<ReadyMenu>().ChangeImage(playerNumber, i);
 						//Set that this control method is now active
 						activeControllers[i] = true;
 					}
@@ -64,7 +63,6 @@ public class ControllerManager : MonoBehaviour
 						playerController[player] = MAX_PLAYERS + 1;
 						string text = "Player " + (player + 1) + "\nPress Start";
 						GetComponent<ReadyMenu>().ChangeText(player, text);
-						GetComponent<ReadyMenu>().ChangeImage(player);
 						//Set that this control method is not active
 						activeControllers[i] = false;
 					}

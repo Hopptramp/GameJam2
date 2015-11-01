@@ -56,9 +56,6 @@ public class Player : MonoBehaviour
 		bar = GetComponent<ProgressBar> ();
 		bar.ProgressOverTime (0, 0);
 		director = Instantiate(directorPrefab, transform.position, Quaternion.identity) as GameObject;
-
-		Color colour = GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().playerColours [playerInput-1];
-		director.transform.GetChild (0).GetComponent<Renderer> ().material.SetColor ("_Color", colour);
 		director.transform.parent = transform;
 	}
 	
@@ -284,6 +281,7 @@ public class Player : MonoBehaviour
 		GameObject bubble = Instantiate (bubblePrefab, Vector3.zero, Quaternion.identity) as GameObject;
         bool blow = (Input.GetAxis("LeftTrigger" + _controller)>0);
         bubble.GetComponent<Bubble> ().AssignParameters (bar.GetProgress(), _origin, _direction, blow);
+		//GameObject.Find ("Sound").GetComponent<Sounds> ().bubblePop ();
 	}
 
 	void OnCollisionEnter(Collision col)
@@ -329,10 +327,10 @@ public class Player : MonoBehaviour
 		transform.Find("SpriteObject").transform.localScale = theScale;
 	}
 
-	public void SetupPlayerID(int _ID, int _input)
+	public void SetupPlayerID(int ID, int input)
 	{
-		playerID = _ID;
-		playerInput = _input;
+		playerID = ID;
+		playerInput = input;
 	}
 
     // needed to get the playerID for showing no. of deaths (couldn't think of a better way?)
@@ -340,11 +338,6 @@ public class Player : MonoBehaviour
     {
         return playerID;
     }
-
-	public int returnPlayerController()
-	{
-		return playerInput;
-	}
 
 	public void SetMovementIsPaused(bool _b)
 	{

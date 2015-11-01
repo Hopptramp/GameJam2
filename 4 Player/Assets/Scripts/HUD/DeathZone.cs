@@ -38,7 +38,6 @@ public class DeathZone : MonoBehaviour {
 			Vector3 position = _col.transform.position;
 			position.y = transform.parent.position.y;
 			_col.transform.position = position;
-            _col.GetComponent<bubbleInteraction>().resetMovement();
 
 			Player playerScript = _col.GetComponent<Player>();
 			int player = playerScript.returnPlayerID();
@@ -50,6 +49,7 @@ public class DeathZone : MonoBehaviour {
 			GameObject bubble = Instantiate (bubblePrefab, Vector3.zero, Quaternion.identity) as GameObject;
 			bubble.GetComponent<Bubble> ().AssignParameters (0.5f, position,-Vector3.up);
 
+			GameObject.Find ("Sound").GetComponent<Sounds> ().playerDeath();
 
 			///////////TELL PLAYER THEY HAVE DIED///////////UPDATE ANIMATION///////////RESPAWN ON BUBBLE///////////
 			///////////CHANGE SCORE///////////

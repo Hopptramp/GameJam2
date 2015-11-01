@@ -105,10 +105,8 @@ public class bubbleInteraction : MonoBehaviour
 		if (movementIsPaused == false) 
 		{
        
-			if (!inputRecieved && !disableDrag)
-            {
+			if (!inputRecieved && !disableDrag) {
 				addAcceleration (-(dragX * (new Vector3 (vel.x, 0, 0))));
-                
 			}
 
 			addAcceleration (gravMod * grav);
@@ -154,12 +152,6 @@ public class bubbleInteraction : MonoBehaviour
 	{
 		movementIsPaused = _b;
 	}
-
-    public void resetMovement()
-    {
-        vel = new Vector3(0, 0, 0);
-        acc = new Vector3(0, 0, 0);
-    }
 
 
 }
