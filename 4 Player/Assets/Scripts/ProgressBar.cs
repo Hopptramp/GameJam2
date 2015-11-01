@@ -24,6 +24,11 @@ public class ProgressBar : MonoBehaviour
 	{
 		bar.transform.SetParent(transform);
 		barImage = bar.transform.GetChild(0).GetComponent<Image>();
+		if (tag == "Player") 
+		{
+			int controller = GetComponent<Player> ().returnPlayerController ();
+			barImage.color = GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().playerColours [controller - 1];
+		}
 	}
 	
 	// Update is called once per frame

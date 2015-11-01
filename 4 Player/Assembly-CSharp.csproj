@@ -64,8 +64,12 @@
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\ReadyMenu.cs" />
+     <Compile Include="Assets\Scripts\Sounds.cs" />
      <Compile Include="Assets\Scripts\VisualBackgroundScroller.cs" />
+     <Compile Include="Assets\Scripts\backingTOONS.cs" />
      <Compile Include="Assets\Scripts\bubbleInteraction.cs" />
+     <None Include="Assets\Shaders\Outlline.shader" />
+     <None Include="Assets\Shaders\Custom Unlit.shader" />
      <None Include="Assets\Fonts\bubblegums\pizzadudedotdk.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
