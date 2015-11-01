@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BlowScript.cs" />
      <Compile Include="Assets\Scripts\BoundaryScript.cs" />
      <Compile Include="Assets\Scripts\Bubble.cs" />
      <Compile Include="Assets\Scripts\BubbleAnimation.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Scripts\ReadyMenu.cs" />
      <Compile Include="Assets\Scripts\VisualBackgroundScroller.cs" />
      <Compile Include="Assets\Scripts\bubbleInteraction.cs" />
+     <None Include="Assets\Fonts\bubblegums\pizzadudedotdk.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
