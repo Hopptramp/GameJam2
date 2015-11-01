@@ -38,13 +38,15 @@ public class displayScores : MonoBehaviour
 			}
 		}
 
-		int maxValue = Mathf.Min(numberOfDeaths);
+		int maxValue = 0;
 		int maxIndex = 0;
 
 		for (int i = 0; i < numberOfDeaths.Length; ++i) 
 		{
 			if (playerController[i] != 5)
 			{
+				maxValue = Mathf.Min(numberOfDeaths);
+
 				if(numberOfDeaths[i] == maxValue)
 				{
 					maxIndex = i;
@@ -52,7 +54,7 @@ public class displayScores : MonoBehaviour
 			}
 		}
 
-		Winner.text = "P" + (maxIndex + 1) + " WINNER";
+		Winner.text = "P" + (maxIndex + 1) + " WINS";
 
 
 	}
