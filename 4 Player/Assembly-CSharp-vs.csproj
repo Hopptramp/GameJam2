@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\HUD\DeathZone.cs" />
      <Compile Include="Assets\Scripts\HUD\HUDClock.cs" />
      <Compile Include="Assets\Scripts\HUD\ScoreTracker.cs" />
+     <Compile Include="Assets\Scripts\HUD\displayScores.cs" />
      <Compile Include="Assets\Scripts\JumpReset.cs" />
      <Compile Include="Assets\Scripts\LevelScroller.cs" />
      <Compile Include="Assets\Scripts\LevelStart.cs" />

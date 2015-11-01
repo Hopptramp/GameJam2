@@ -9,6 +9,8 @@ public class ConstantData : MonoBehaviour
 	public GameObject playerPrefab;
 
 	public int[] playerDeaths;
+
+	public Color[] playerColours;
 	
 	// Use this for initialization
 	void Start () 
