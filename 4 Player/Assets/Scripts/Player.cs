@@ -266,11 +266,13 @@ public class Player : MonoBehaviour
 		if (leftTrigger > 0) 
 		{
             GetComponentInChildren<BlowScript>().blowActive = true;
+            GetComponentInChildren<ParticleSystem>().enableEmission = true;
 
 		}
         else
         {
             GetComponentInChildren<BlowScript>().blowActive = false;
+            GetComponentInChildren<ParticleSystem>().enableEmission = false;
         }
 	}
 
