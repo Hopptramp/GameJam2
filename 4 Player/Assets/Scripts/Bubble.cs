@@ -19,6 +19,10 @@ public class Bubble : MonoBehaviour
 	public float size = 1;
 	public float chargeMultiplier = 20.0f; //Max lifetime/scale by default is 1sec/0.5scale (value of 20 makes max 20sec/10scale)
 
+    
+    [SerializeField]float maxVelLifeReductionFactor = 40.0f;
+    
+
 	private ProgressBar bar;
 
 	private bool frameSpawned = true;
@@ -72,6 +76,7 @@ public class Bubble : MonoBehaviour
 		{
 			scaledCharge = 1;
 			smallBubbleMultiplier = 20.0f;
+            
 		}
 
 		lifetime = scaledCharge;
@@ -90,13 +95,50 @@ public class Bubble : MonoBehaviour
 	}
 
 
+    // Overload called for when the player is blowing at the same time.
+    public void AssignParameters(float _charge, Vector3 _origin, Vector3 _direction, bool _blow)
+    {
+        //Scaled charge uses power of 3 graph to detrmine lifetime and size
+        float scaledCharge = (((Mathf.Pow((_charge - 0.5f), 3.0f) * 5) + 0.5f) * chargeMultiplier);
+
+        float smallBubbleMultiplier = 1.0f;
+        //Perhaps hard coded unique setup for the bullet balloons?
+        if (_charge < 0.2)
+        {
+            scaledCharge = 1;
+            smallBubbleMultiplier = 20.0f;
+            if (_blow)
+            {
+                smallBubbleMultiplier = 50.0f;
+            }
+        }
+
+        lifetime = scaledCharge;
+        startLifetime = lifetime;
+
+        size = scaledCharge / 2;
+        transform.localScale = transform.localScale * size;
+
+        //Set up spawn distance from player based on size
+        transform.position = _origin + _direction * Mathf.Lerp(2.0f, 8.0f, scaledCharge / chargeMultiplier);
+        vel += (_direction * smallBubbleMultiplier);
+
+        bar.ChangePosition(new Vector3(transform.position.x, transform.position.y, -size / 2));
 
 
-	// ----------------------------------------------------------------------------------------
-	// Decay/death code (below)
+    }
 
-	// destroy the object
-	public void destroyBubble()
+
+
+
+
+
+
+    // ----------------------------------------------------------------------------------------
+    // Decay/death code (below)
+
+    // destroy the object
+    public void destroyBubble()
 	{
 		DestroyObject (gameObject);
 
@@ -153,14 +195,15 @@ public class Bubble : MonoBehaviour
                         float max; 
                         if (Vector3.Distance(Vector3.zero, colScript.vel)> 40.0f)
                         {
-                            max = 40.0f;
+                            max = maxVelLifeReductionFactor;
                         }
                         else
                         {
                             max = Vector3.Distance(Vector3.zero, colScript.vel);
                         }
-                        float reduction = max / 8;
+                        float reduction = max / (maxVelLifeReductionFactor/5);
                         reduceLifetime(reduction);
+                        colScript.destroyBubble();
                     }
                 }
 

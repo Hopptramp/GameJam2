@@ -61,11 +61,15 @@ public class bubbleInteraction : MonoBehaviour
 		{
 			ContactPoint contact = col.contacts [0];
             Bubble bubble = col.transform.gameObject.GetComponent<Bubble>();
-            bounceFactor = bubble.size / bounceDivisor;          
-            vel = findBounceVel (contact);
-            bounceFactor = 1;
-            disableDrag = true;
-            dragDisableTime = 0.0f;
+            if (bubble.size != 0.5f)
+            {
+                bounceFactor = bubble.size / bounceDivisor;
+                vel = findBounceVel(contact);
+                bounceFactor = 1;
+                disableDrag = true;
+                dragDisableTime = 0.0f;
+            }
+            
 
 		} 
 		else 

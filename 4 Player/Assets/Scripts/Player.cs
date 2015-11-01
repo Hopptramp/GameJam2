@@ -252,7 +252,7 @@ public class Player : MonoBehaviour
 			{
 				//!!!FIRE THE BUBBLE!!!//
 				Vector3 direction = director.transform.rotation * Vector3.up;
-				SpawnBubble (transform.position, direction);
+				SpawnBubble (transform.position, direction, _controller);
 				bar.ProgressOverTime(0, bubbleCooldown); //The progress bar is sorta managing the cooldown...ah well
 			}
 			rightTriggerLastFrame = false;
@@ -276,10 +276,11 @@ public class Player : MonoBehaviour
         }
 	}
 
-	void SpawnBubble(Vector3 _origin, Vector3 _direction)
+	void SpawnBubble(Vector3 _origin, Vector3 _direction, string _controller)
 	{
 		GameObject bubble = Instantiate (bubblePrefab, Vector3.zero, Quaternion.identity) as GameObject;
-		bubble.GetComponent<Bubble> ().AssignParameters (bar.GetProgress(), _origin, _direction);
+        bool blow = (Input.GetAxis("LeftTrigger" + _controller)>0);
+        bubble.GetComponent<Bubble> ().AssignParameters (bar.GetProgress(), _origin, _direction, blow);
 	}
 
 	void OnCollisionEnter(Collision col)
