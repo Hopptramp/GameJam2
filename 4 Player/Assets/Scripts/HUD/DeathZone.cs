@@ -49,7 +49,7 @@ public class DeathZone : MonoBehaviour {
 			GameObject bubble = Instantiate (bubblePrefab, Vector3.zero, Quaternion.identity) as GameObject;
 			bubble.GetComponent<Bubble> ().AssignParameters (0.5f, position,-Vector3.up);
 
-			GameObject.Find ("Sound").GetComponent<Sounds> ().playerDeath();
+			GameObject.Find ("SoundEffects").GetComponent<Sounds> ().playerDeath();
 
 			///////////TELL PLAYER THEY HAVE DIED///////////UPDATE ANIMATION///////////RESPAWN ON BUBBLE///////////
 			///////////CHANGE SCORE///////////

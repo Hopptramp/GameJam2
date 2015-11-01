@@ -34,7 +34,19 @@ public class displayScores : MonoBehaviour
 			}
 			else
 			{
-				displayDeaths[i].text = "P" + (i+1) + " - Died " + numberOfDeaths[i] + " times!";
+				if (playerDeaths[i] == 1)
+				{
+					displayDeaths[i].text = "P" + (i+1) + " - Died " + numberOfDeaths[i] + " time!";
+				}
+				else if (playerDeaths[i] > 0)
+				{
+					displayDeaths[i].text = "P" + (i+1) + " - Died " + numberOfDeaths[i] + " times!";
+				}
+				else 
+				{
+					displayDeaths[i].text = "P" + (i+1) + " Survived";
+				}
+
 			}
 		}
 
