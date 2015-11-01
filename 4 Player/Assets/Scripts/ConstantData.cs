@@ -7,6 +7,8 @@ public class ConstantData : MonoBehaviour
 	public bool[] activeControllers;
 	public int[] playerController;
 	public GameObject playerPrefab;
+
+	public int[] playerDeaths;
 	
 	// Use this for initialization
 	void Start () 
@@ -15,6 +17,7 @@ public class ConstantData : MonoBehaviour
 		activeControllers = new bool[MAX_PLAYERS];
 		//players = new GameObject[MAX_PLAYERS];
 		playerController = new int[MAX_PLAYERS];
+		playerDeaths = new int[MAX_PLAYERS];
 	}
 	
 	// Update is called once per frame
