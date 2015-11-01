@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
 			int playerController = GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().playerController[i];
 			if(playerController <= MAX_PLAYERS)
 			{
-				Vector3 spawnPoint = new Vector3(-45+(i*15),30,0);
+				Vector3 spawnPoint = new Vector3(-30+(i*20),30,0);
 				players[i] = Instantiate(prefab, spawnPoint, Quaternion.identity) as GameObject;
 				players[i].GetComponent<Player>().SetupPlayerID(i + 1, playerController);
 				players[i].GetComponent<Player>().SetMovementIsPaused(true);

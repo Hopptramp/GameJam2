@@ -51,13 +51,35 @@ public class displayScores : MonoBehaviour
 		}
 
 		int maxValue = 0;
-		int maxIndex = 0;
+		int maxIndex = 20;
+
+		int numOfPlayers = 0;
+		for (int i = 0; i < MAX_PLAYERS; ++i) 
+		{
+			if (playerController[i] != 5)
+			{
+				++numOfPlayers;
+			}
+		}
+
+		int[] temp = new int[numOfPlayers];
+
+		int tempCounter = 0;
+		for (int i = 0; i < MAX_PLAYERS; ++i) 
+		{
+			if (playerController[i] != 5)
+			{
+				temp[tempCounter] = numberOfDeaths[i];
+				++tempCounter;
+			}
+		}
+
 
 		for (int i = 0; i < numberOfDeaths.Length; ++i) 
 		{
 			if (playerController[i] != 5)
 			{
-				maxValue = Mathf.Min(numberOfDeaths);
+				maxValue = Mathf.Min(temp);
 
 				if(numberOfDeaths[i] == maxValue)
 				{
