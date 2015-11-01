@@ -21,6 +21,7 @@ public class Bubble : MonoBehaviour
 
     
     [SerializeField]float maxVelLifeReductionFactor = 40.0f;
+    [SerializeField]int reductionDivisor = 5;
     
 
 	private ProgressBar bar;
@@ -201,7 +202,7 @@ public class Bubble : MonoBehaviour
                         {
                             max = Vector3.Distance(Vector3.zero, colScript.vel);
                         }
-                        float reduction = max / (maxVelLifeReductionFactor/5);
+                        float reduction = max / (maxVelLifeReductionFactor/reductionDivisor);
                         reduceLifetime(reduction);
                         colScript.destroyBubble();
                     }

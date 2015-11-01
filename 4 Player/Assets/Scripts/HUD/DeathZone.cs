@@ -38,6 +38,7 @@ public class DeathZone : MonoBehaviour {
 			Vector3 position = _col.transform.position;
 			position.y = transform.parent.position.y;
 			_col.transform.position = position;
+            _col.GetComponent<bubbleInteraction>().resetMovement();
 
 			Player playerScript = _col.GetComponent<Player>();
 			int player = playerScript.returnPlayerID();
