@@ -46,7 +46,8 @@ public class displayScores : MonoBehaviour
 				{
 					displayDeaths[i].text = "P" + (i+1) + " Survived";
 				}
-
+				//assign the player's colour
+				displayDeaths[i].color = GameObject.FindGameObjectWithTag("GlobalConstant").GetComponent<ConstantData>().playerColours[playerController[i] - 1];
 			}
 		}
 
@@ -89,6 +90,7 @@ public class displayScores : MonoBehaviour
 		}
 
 		Winner.text = "P" + (maxIndex + 1) + " WINS";
+		Winner.color = GameObject.FindGameObjectWithTag("GlobalConstant").GetComponent<ConstantData>().playerColours[playerController[maxIndex] - 1];
 
 
 	}
