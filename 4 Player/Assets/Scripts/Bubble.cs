@@ -62,7 +62,6 @@ public class Bubble : MonoBehaviour
 		// if the lifetime runs out
 		if (lifetime <= 0.0f)
 		{
-			GameObject.Find ("SoundEffects").GetComponent<Sounds> ().bubblePop (size);
 			destroyBubble();
 		}
 		velReversed = false;
@@ -149,7 +148,15 @@ public class Bubble : MonoBehaviour
     // destroy the object
     public void destroyBubble()
 	{
-		//GameObject.Find ("Sound").GetComponent<Sounds> ().bubblePop ();
+		DestroyObject (gameObject);
+	}
+
+	public void destroyBubble(bool _mute)
+	{
+		if(_mute != true)
+		{
+			GameObject.Find ("SoundEffects").GetComponent<Sounds> ().bubblePop (size);
+		}
 		DestroyObject (gameObject);
 	}
 

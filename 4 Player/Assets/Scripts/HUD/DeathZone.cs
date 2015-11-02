@@ -55,4 +55,12 @@ public class DeathZone : MonoBehaviour {
 			///////////CHANGE SCORE///////////
 		}
 	}
+
+	void OnTriggerStay(Collider _col)
+	{
+		if (_col.gameObject.tag == "Bubble") 
+		{
+			_col.GetComponent<Bubble>().destroyBubble(true);
+		}
+	}
 }
