@@ -83,7 +83,7 @@ public class Bubble : MonoBehaviour
 		{
 			scaledCharge = 1;
 			smallBubbleMultiplier = 20.0f;
-            
+			transform.Find("BubbleOutline").localScale = new Vector3(0.15f,0.15f,0.15f);
 		}
 
 		lifetime = scaledCharge;
@@ -97,7 +97,7 @@ public class Bubble : MonoBehaviour
 		vel += (_direction * smallBubbleMultiplier);
 		
 		bar.ChangePosition (new Vector3 (transform.position.x, transform.position.y, -size / 2));
-	
+		bar.ChangeScale (size);
 	
 	}
 
@@ -114,6 +114,8 @@ public class Bubble : MonoBehaviour
         {
             scaledCharge = 1;
             smallBubbleMultiplier = 20.0f;
+			transform.Find("BubbleOutline").localScale = new Vector3(0.15f,0.15f,0.15f);
+
             if (_blow)
             {
                 smallBubbleMultiplier = 50.0f;
@@ -131,7 +133,7 @@ public class Bubble : MonoBehaviour
         vel += (_direction * smallBubbleMultiplier);
 
         bar.ChangePosition(new Vector3(transform.position.x, transform.position.y, -size / 2));
-
+		bar.ChangeScale (size);
 
     }
 

@@ -20,6 +20,14 @@ public class ReadyMenu : MonoBehaviour
 			name = "Canvas/player" + (i + 1) + "Bubble";
 			startImage[i] = GameObject.Find (name).GetComponent<Image>();
 		}
+
+		//Reset constant data (Just in case)
+		for(int i = 0; i < MAX_PLAYERS; ++i)
+		{
+			GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().activeControllers[i] = false;
+			GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().playerController[i] = MAX_PLAYERS + 1;
+			GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().playerDeaths[i] = 0;
+		}
 	}
 	
 	// Update is called once per frame

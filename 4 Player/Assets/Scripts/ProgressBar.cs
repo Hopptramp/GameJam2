@@ -128,4 +128,10 @@ public class ProgressBar : MonoBehaviour
 	{
 		bar.transform.position = _pos;
 	}
+
+	public void ChangeScale(float _size)
+	{
+		Vector2 newScale = Vector2.one * (_size / 10);
+		bar.transform.localScale = newScale;
+	}
 }

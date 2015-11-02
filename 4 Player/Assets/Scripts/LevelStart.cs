@@ -51,6 +51,12 @@ public class LevelStart : MonoBehaviour
 					string name = "HUDCanvas";
 					GameObject.Find (name).GetComponent<HUDClock>().SetTimerPaused(false);
 					hasGameBegun = true;
+					GameObject.Find("Scroller/HUDCanvas/StartTimer").GetComponent<Text>().text = "";
+				}
+				else
+				{
+					int count = (int)Mathf.Ceil( startTimer - (Time.realtimeSinceStartup - timeOnSetupFinished));
+					GameObject.Find("Scroller/HUDCanvas/StartTimer").GetComponent<Text>().text = count.ToString();
 				}
 			}
 		}

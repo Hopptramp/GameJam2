@@ -15,6 +15,11 @@ public class ConstantData : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+
+	}
+
+	void Awake()
+	{
 		DontDestroyOnLoad (this);
 		activeControllers = new bool[MAX_PLAYERS];
 		//players = new GameObject[MAX_PLAYERS];
