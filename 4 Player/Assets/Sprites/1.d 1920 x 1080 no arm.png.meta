@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: c375659acdb81e54f867232bfd81c13e
-timeCreated: 1446470269
+timeCreated: 1446474357
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: 1.d 1920 x 1080 no arm_0
+    21300002: 1.d 1920 x 1080 no arm_1
+    21300004: 1.d 1920 x 1080 no arm_2
+    21300006: 1.d 1920 x 1080 no arm_3
+    21300008: 1.d 1920 x 1080 no arm_4
+    21300010: 1.d 1920 x 1080 no arm_5
+    21300012: 1.d 1920 x 1080 no arm_6
+    21300014: 1.d 1920 x 1080 no arm_7
+    21300016: 1.d 1920 x 1080 no arm_8
+    21300018: 1.d 1920 x 1080 no arm_9
+    21300020: 1.d 1920 x 1080 no arm_10
+    21300022: 1.d 1920 x 1080 no arm_11
+    21300024: 1.d 1920 x 1080 no arm_12
+    21300026: 1.d 1920 x 1080 no arm_13
+    21300028: 1.d 1920 x 1080 no arm_14
+    21300030: 1.d 1920 x 1080 no arm_15
+    21300032: 1.d 1920 x 1080 no arm_16
+    21300034: 1.d 1920 x 1080 no arm_17
+    21300036: 1.d 1920 x 1080 no arm_18
+    21300038: 1.d 1920 x 1080 no arm_19
+    21300040: 1.d 1920 x 1080 no arm_20
+    21300042: 1.d 1920 x 1080 no arm_21
+    21300044: 1.d 1920 x 1080 no arm_22
+    21300046: 1.d 1920 x 1080 no arm_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +61,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +72,247 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: 1.d 1920 x 1080 no arm_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 926
+        width: 93
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_1
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 960
+        width: 78
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_2
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 929
+        width: 119
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 689
+        width: 92
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_4
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 691
+        width: 104
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_5
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 694
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_6
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 699
+        width: 144
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_7
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 452
+        width: 93
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_8
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 454
+        width: 103
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_9
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 457
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_10
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 462
+        width: 143
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_11
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 467
+        width: 154
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_12
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 468
+        width: 163
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_13
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 466
+        width: 159
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_14
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 465
+        width: 143
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_15
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 243
+        width: 154
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_16
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 244
+        width: 164
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_17
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 242
+        width: 159
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_18
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 241
+        width: 143
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_19
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 155
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_20
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 122
+        width: 70
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_21
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 45
+        width: 59
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_22
+      rect:
+        serializedVersion: 2
+        x: 1781
+        y: 41
+        width: 30
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm_23
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 48
+        width: 27
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

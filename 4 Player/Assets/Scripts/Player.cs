@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 	private int playerID = 1;
 	private int playerInput = 0;
 	private int playerDeaths = 0;
+	private bool falling = false;
 	//private Rigidbody rb;
 
 	public GameObject directorPrefab;
@@ -94,6 +95,9 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate()
 	{
+
+		fallPlayer ();
+
 		string input = null;
 		if (playerInput != 0) 
 		{
@@ -106,6 +110,7 @@ public class Player : MonoBehaviour
 
 			InputJump (input);
 		}
+
 
 		
 
@@ -326,8 +331,20 @@ public class Player : MonoBehaviour
 		
 		// Multiply the player's x local scale by -1.
 		Vector3 theScale = transform.Find("SpriteObject").transform.localScale;
+		Vector3 theScale2 = transform.Find ("Pivot").transform.localScale ;
+		Vector3 thePos = transform.Find ("Pivot").transform.localPosition;
+
+
+
 		theScale.x *= -1;
+		thePos.x *= -1;
+		theScale2.x *= -1;
+
 		transform.Find("SpriteObject").transform.localScale = theScale;
+		transform.Find ("Pivot").transform.localPosition = thePos;
+		transform.Find ("Pivot").transform.localScale = theScale2;
+
+
 	}
 
 	public void SetupPlayerID(int _ID, int _input)
@@ -336,6 +353,23 @@ public class Player : MonoBehaviour
 		playerInput = _input;
 	}
 
+	public void fallPlayer ()
+	{
+	
+		float velocity = GetComponent<bubbleInteraction> ().vel.y;
+
+		if (velocity <= -0.1 && !falling) 
+		{
+			falling = true;
+
+			anim.SetTrigger ("playerFellFromStay");
+		}
+		if (velocity >= 0) 
+		{
+			falling = false;
+			anim.SetTrigger ("playerLanded");
+		}
+	}
     // needed to get the playerID for showing no. of deaths (couldn't think of a better way?)
     public int returnPlayerID()
     {
