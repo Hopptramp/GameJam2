@@ -47,7 +47,7 @@ public class ControllerManager : MonoBehaviour
 					{
 						//Setup player as using a specific control method
 						playerController[playerNumber] = i + 1;
-						string text = "Player " + (playerNumber + 1) + "\nNot Ready";
+						string text = "Player " + (playerNumber + 1) + "\nNot Ready \n press 'a'";
 						GetComponent<ReadyMenu>().ChangeText(playerNumber, text);
 						GetComponent<ReadyMenu>().ChangeImage(playerNumber, i);
 						//Set that this control method is now active
@@ -71,7 +71,7 @@ public class ControllerManager : MonoBehaviour
 						int player = FindPlayerFromConroller(i);
 						if(player != MAX_PLAYERS)
 						{
-							string text = "Player " + (player + 1) + "\nNot Ready";
+							string text = "Player " + (player + 1) + "\nNot Ready \n press 'a'";
 							GetComponent<ReadyMenu>().ChangeText(player, text);
 						}
 					}
