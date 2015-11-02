@@ -6,6 +6,11 @@ public class ControllerManager : MonoBehaviour
 	private int MAX_PLAYERS;
 	private bool[] activeControllers;
 	private int[] playerController;
+	private bool[] playerReady;
+
+	public int readyTime = 5;
+	private float timeOnReady;
+	private bool allPlayersReady = false;
 
 	// Use this for initialization
 	void Start () 
@@ -14,9 +19,12 @@ public class ControllerManager : MonoBehaviour
 		//Setting up initial arrays
 		activeControllers = new bool[MAX_PLAYERS];
 		playerController = new int[MAX_PLAYERS];
+		playerReady = new bool[MAX_PLAYERS];
 		for(int i = 0; i < MAX_PLAYERS; ++i)
 		{
 			playerController[i] = MAX_PLAYERS + 1;
+			activeControllers[i] = false;
+			playerReady[i] = false;
 		}
 
 	}
@@ -28,7 +36,7 @@ public class ControllerManager : MonoBehaviour
 		for (int i = 0; i < MAX_PLAYERS; ++i) 
 		{
 			//If a player presses start
-			if (Input.GetButton ("Start" + (i + 1))) 
+			if (Input.GetButtonDown ("Start" + (i + 1))) 
 			{
 				if(activeControllers[i] == false)
 				{
@@ -39,7 +47,7 @@ public class ControllerManager : MonoBehaviour
 					{
 						//Setup player as using a specific control method
 						playerController[playerNumber] = i + 1;
-						string text = "Player " + (playerNumber + 1) + "\nReady";
+						string text = "Player " + (playerNumber + 1) + "\nNot Ready";
 						GetComponent<ReadyMenu>().ChangeText(playerNumber, text);
 						GetComponent<ReadyMenu>().ChangeImage(playerNumber, i);
 						//Set that this control method is now active
@@ -52,24 +60,105 @@ public class ControllerManager : MonoBehaviour
 				}
 			}
 			//Else if player presses back
-			else if (Input.GetButton ("Back" + (i + 1))) 
+			else if (Input.GetButtonDown ("Back" + (i + 1))) 
 			{
 				if(activeControllers[i] == true)
 				{
-					//Finds the corresponding player from the control method
-					int player = FindPlayerFromConroller(i);
-					if(player != MAX_PLAYERS)
+					if(playerReady[i] == true)
 					{
-						//Set that player as having no control method 
-						playerController[player] = MAX_PLAYERS + 1;
-						string text = "Player " + (player + 1) + "\nPress Start";
-						GetComponent<ReadyMenu>().ChangeText(player, text);
-						GetComponent<ReadyMenu>().ChangeImage(player);
-						//Set that this control method is not active
-						activeControllers[i] = false;
+						playerReady[i] = false;
+						/////UpdateText/////
+						int player = FindPlayerFromConroller(i);
+						if(player != MAX_PLAYERS)
+						{
+							string text = "Player " + (player + 1) + "\nNot Ready";
+							GetComponent<ReadyMenu>().ChangeText(player, text);
+						}
+					}
+					else
+					{
+						//Finds the corresponding player from the control method
+						int player = FindPlayerFromConroller(i);
+						if(player != MAX_PLAYERS)
+						{
+							//Set that player as having no control method 
+							playerController[player] = MAX_PLAYERS + 1;
+							string text = "Player " + (player + 1) + "\nPress Start";
+							GetComponent<ReadyMenu>().ChangeText(player, text);
+							GetComponent<ReadyMenu>().ChangeImage(player);
+							//Set that this control method is not active
+							activeControllers[i] = false;
+						}
 					}
 				}
 			}
+			else if (Input.GetButtonDown ("A" + (i + 1))) 
+			{
+				if(activeControllers[i] == true)
+				{
+					if(playerReady[i] == false)
+					{
+						playerReady[i] = true;
+						int player = FindPlayerFromConroller(i);
+						if(player != MAX_PLAYERS)
+						{
+							string text = "Player " + (player + 1) + "\nReady";
+							GetComponent<ReadyMenu>().ChangeText(player, text);
+						}
+					}
+				}
+			}
+		}
+
+		CheckPlayersReady ();
+	}
+
+	void CheckPlayersReady ()
+	{
+		bool ready = true;
+		int numOfPlayers = 0;
+		for (int i = 0; i < MAX_PLAYERS; ++i) 
+		{
+			if(activeControllers[i] == true)
+			{
+				if(playerReady[i] != true)
+				{
+					ready = false;
+					GetComponent<ReadyMenu>().ChangeGameStartText("Waiting for all players to ready up");
+				}
+			}
+			else
+			{
+				++numOfPlayers;
+			}
+		}
+		if (numOfPlayers == MAX_PLAYERS) 
+		{
+			ready = false;
+			GetComponent<ReadyMenu>().ChangeGameStartText("Waiting for all players to ready up");
+		}
+
+		if (ready == true) 
+		{
+			string name = "Game starting in " + Mathf.Ceil(readyTime - (Time.realtimeSinceStartup - timeOnReady));
+			GetComponent<ReadyMenu>().ChangeGameStartText(name);
+			if(allPlayersReady == false)
+			{
+				timeOnReady = Time.realtimeSinceStartup;
+				allPlayersReady = true;
+			}
+			else
+			{
+				if(readyTime < (Time.realtimeSinceStartup - timeOnReady))
+				{
+					///Countdown text
+					GetComponent<ReadyMenu>().ChangeToScene("Empty 4 Player Test");
+				}
+			}
+		} 
+		else 
+		{
+			allPlayersReady = false;
 		}
 	}
 

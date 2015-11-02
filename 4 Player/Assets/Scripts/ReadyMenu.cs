@@ -7,11 +7,13 @@ public class ReadyMenu : MonoBehaviour
 	private const int MAX_PLAYERS = 4;
 	public Text[] startText;
 	public Image[] startImage;
+	private Text readyText;
 	// Use this for initialization
 	void Start () 
 	{
 		startText = new Text[MAX_PLAYERS];
 		startImage = new Image[MAX_PLAYERS];
+		readyText = GameObject.Find ("Canvas/GameBegin").GetComponent<Text>();
 
 		for (int i = 0; i < MAX_PLAYERS; ++i) 
 		{
@@ -55,6 +57,11 @@ public class ReadyMenu : MonoBehaviour
 	{
 		GetComponent<ControllerManager>().UpdateConstantData();
 		Application.LoadLevel (sceneToChangeTo);
+	}
+
+	public void ChangeGameStartText(string _text)
+	{
+		readyText.text = _text;
 	}
 
 }
