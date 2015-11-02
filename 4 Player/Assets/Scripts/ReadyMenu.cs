@@ -37,7 +37,7 @@ public class ReadyMenu : MonoBehaviour
 	{
 		if ( Input.GetButton ("B"))
 		{
-			Application.Quit();
+			//Application.Quit();
 		}
 	}
 

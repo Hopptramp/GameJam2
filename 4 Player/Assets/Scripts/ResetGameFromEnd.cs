@@ -59,7 +59,7 @@ public class ResetGameFromEnd : MonoBehaviour
 				int playerID = FindPlayerFromConroller(i);
 				if(playerID != 5)
 				{
-					ready[playerID].text = "Ready";
+					ready[playerID].text = "ready";
 					ready[playerID].color = GameObject.FindGameObjectWithTag("GlobalConstant").GetComponent<ConstantData>().playerColours[i];
 					allReady[i] = true;
 				}
@@ -71,7 +71,7 @@ public class ResetGameFromEnd : MonoBehaviour
 				{
 					ready[playerID].text = " ";
 					allReady[i] = false;
-					restartText.text = "Play Again? Press Start";
+					restartText.text = "play again? press start";
 					allPlayersReady = false;
 				}
 			}
@@ -93,7 +93,7 @@ public class ResetGameFromEnd : MonoBehaviour
 					int readyTime = 3;
 
 					//------------------------------------------------------------------------------------------------------
-					string name = "Game restarting in " + Mathf.Ceil(readyTime - (Time.realtimeSinceStartup - timeOnReady));
+					string name = "game restarting in " + Mathf.Ceil(readyTime - (Time.realtimeSinceStartup - timeOnReady));
 
 					restartText.text = name;
 

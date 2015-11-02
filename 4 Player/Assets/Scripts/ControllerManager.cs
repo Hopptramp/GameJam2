@@ -47,7 +47,7 @@ public class ControllerManager : MonoBehaviour
 					{
 						//Setup player as using a specific control method
 						playerController[playerNumber] = i + 1;
-						string text = "Player " + (playerNumber + 1) + "\nNot Ready \n press 'a'";
+						string text = "player " + (playerNumber + 1) + "\nnot ready \n press 'a'";
 						GetComponent<ReadyMenu>().ChangeText(playerNumber, text);
 						GetComponent<ReadyMenu>().ChangeImage(playerNumber, i);
 						//Set that this control method is now active
@@ -71,7 +71,7 @@ public class ControllerManager : MonoBehaviour
 						int player = FindPlayerFromConroller(i);
 						if(player != MAX_PLAYERS)
 						{
-							string text = "Player " + (player + 1) + "\nNot Ready \n press 'a'";
+							string text = "player " + (player + 1) + "\nnot ready \n press 'a'";
 							GetComponent<ReadyMenu>().ChangeText(player, text);
 						}
 					}
@@ -83,7 +83,7 @@ public class ControllerManager : MonoBehaviour
 						{
 							//Set that player as having no control method 
 							playerController[player] = MAX_PLAYERS + 1;
-							string text = "Player " + (player + 1) + "\nPress Start";
+							string text = "player " + (player + 1) + "\npress start";
 							GetComponent<ReadyMenu>().ChangeText(player, text);
 							GetComponent<ReadyMenu>().ChangeImage(player);
 							//Set that this control method is not active
@@ -102,7 +102,7 @@ public class ControllerManager : MonoBehaviour
 						int player = FindPlayerFromConroller(i);
 						if(player != MAX_PLAYERS)
 						{
-							string text = "Player " + (player + 1) + "\nReady";
+							string text = "player " + (player + 1) + "\nready";
 							GetComponent<ReadyMenu>().ChangeText(player, text);
 						}
 					}
@@ -124,7 +124,7 @@ public class ControllerManager : MonoBehaviour
 				if(playerReady[i] != true)
 				{
 					ready = false;
-					GetComponent<ReadyMenu>().ChangeGameStartText("Waiting for all players to ready up");
+					GetComponent<ReadyMenu>().ChangeGameStartText("waiting for all players to ready up");
 				}
 			}
 			else
@@ -135,12 +135,12 @@ public class ControllerManager : MonoBehaviour
 		if (numOfPlayers == MAX_PLAYERS) 
 		{
 			ready = false;
-			GetComponent<ReadyMenu>().ChangeGameStartText("Waiting for all players to ready up");
+			GetComponent<ReadyMenu>().ChangeGameStartText("waiting for all players to ready up");
 		}
 
 		if (ready == true) 
 		{
-			string name = "Game starting in " + Mathf.Ceil(readyTime - (Time.realtimeSinceStartup - timeOnReady));
+			string name = "game starting in " + Mathf.Ceil(readyTime - (Time.realtimeSinceStartup - timeOnReady));
 			GetComponent<ReadyMenu>().ChangeGameStartText(name);
 			if(allPlayersReady == false)
 			{

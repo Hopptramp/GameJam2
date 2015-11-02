@@ -36,15 +36,15 @@ public class displayScores : MonoBehaviour
 			{
 				if (playerDeaths[i] == 1)
 				{
-					displayDeaths[i].text = "P" + (i+1) + " - Died " + numberOfDeaths[i] + " time!";
+					displayDeaths[i].text = "p" + (i+1) + " - died " + numberOfDeaths[i] + " time!";
 				}
 				else if (playerDeaths[i] > 0)
 				{
-					displayDeaths[i].text = "P" + (i+1) + " - Died " + numberOfDeaths[i] + " times!";
+					displayDeaths[i].text = "p" + (i+1) + " - died " + numberOfDeaths[i] + " times!";
 				}
 				else 
 				{
-					displayDeaths[i].text = "P" + (i+1) + " Survived";
+					displayDeaths[i].text = "p" + (i+1) + " survived";
 				}
 				//assign the player's colour
 				displayDeaths[i].color = GameObject.FindGameObjectWithTag("GlobalConstant").GetComponent<ConstantData>().playerColours[playerController[i] - 1];
@@ -89,7 +89,7 @@ public class displayScores : MonoBehaviour
 			}
 		}
 
-		Winner.text = "P" + (maxIndex + 1) + " WINS";
+		Winner.text = "p" + (maxIndex + 1) + " wins";
 		Winner.color = GameObject.FindGameObjectWithTag("GlobalConstant").GetComponent<ConstantData>().playerColours[playerController[maxIndex] - 1];
 
 
