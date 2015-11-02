@@ -35,8 +35,8 @@ public class PlayerManager : MonoBehaviour
 				players[i].GetComponent<Player>().SetMovementIsPaused(true);
 				GetComponent<LevelStart>().SpawnStartBubble(spawnPoint, i);
 				GetComponent<LevelStart>().SetupLevelColours(i + 1, playerController - 1);
-
-
+				RuntimeAnimatorController aniControl = GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().animatorControllers [playerController - 1];
+				players [i].transform.Find ("SpriteObject").GetComponent<Animator> ().runtimeAnimatorController = aniControl;
 			}
 		}
 	}

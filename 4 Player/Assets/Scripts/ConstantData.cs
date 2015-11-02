@@ -11,6 +11,7 @@ public class ConstantData : MonoBehaviour
 	public int[] playerDeaths;
 
 	public Color[] playerColours;
+	public RuntimeAnimatorController[] animatorControllers;
 	
 	// Use this for initialization
 	void Start () 
