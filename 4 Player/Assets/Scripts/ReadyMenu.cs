@@ -35,7 +35,10 @@ public class ReadyMenu : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		if ( Input.GetButton ("B"))
+		{
+			Application.Quit();
+		}
 	}
 
 	public void ChangeText(int player, string text)

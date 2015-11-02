@@ -12,6 +12,10 @@ public class ResetGameFromEnd : MonoBehaviour
 	public bool[] allReady;
 	public Text[] ready;
 	int activePlayers = 0;
+	bool allPlayersReady = false;
+	public Text restartText; 
+
+	private float timeOnReady;
 
 	// Use this for initialization
 	void Start () 
@@ -43,7 +47,7 @@ public class ResetGameFromEnd : MonoBehaviour
 			ready[i].text = " ";
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -56,6 +60,7 @@ public class ResetGameFromEnd : MonoBehaviour
 				if(playerID != 5)
 				{
 					ready[playerID].text = "Ready";
+					ready[playerID].color = GameObject.FindGameObjectWithTag("GlobalConstant").GetComponent<ConstantData>().playerColours[i];
 					allReady[i] = true;
 				}
 			}
@@ -66,6 +71,8 @@ public class ResetGameFromEnd : MonoBehaviour
 				{
 					ready[playerID].text = " ";
 					allReady[i] = false;
+					restartText.text = "Play Again? Press Start";
+					allPlayersReady = false;
 				}
 			}
 		}
@@ -78,12 +85,31 @@ public class ResetGameFromEnd : MonoBehaviour
 				++temp;
 				if(temp == activePlayers)
 				{
-					resetLevel();
+					if (!allPlayersReady)
+					{
+						timeOnReady = Time.realtimeSinceStartup;
+						allPlayersReady = true;
+					}
+					int readyTime = 3;
+
+					//------------------------------------------------------------------------------------------------------
+					string name = "Game restarting in " + Mathf.Ceil(readyTime - (Time.realtimeSinceStartup - timeOnReady));
+
+					restartText.text = name;
+
+					if(readyTime < (Time.realtimeSinceStartup - timeOnReady))
+					{
+						resetLevel();
+					}
 				}
 			}
 		}
-	
+		if ( Input.GetButton ("B"))
+		{
+			Application.LoadLevel("Menu");
+		}
 	}
+
 
 	void resetLevel()
 	{
@@ -91,7 +117,7 @@ public class ResetGameFromEnd : MonoBehaviour
 
 		for (int i = 0; i < playerDeaths.Length; ++i) 
 		{
-			playerDeaths[i] = 0;
+			GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().playerDeaths[i] = 0;
 		}
 
 		Application.LoadLevel ("Empty 4 Player Test");
