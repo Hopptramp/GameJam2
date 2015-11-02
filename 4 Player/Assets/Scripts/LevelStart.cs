@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class LevelStart : MonoBehaviour 
@@ -86,6 +87,13 @@ public class LevelStart : MonoBehaviour
 		bubble.AssignParameters (0.5f, _location,-Vector3.up);
 		bubble.SetLifetimeIsPaused (true);
 		bubble.SetMovementIsPaused (true);
+	}
+
+	public void SetupLevelColours(int _player, int _controller)
+	{
+		string name = "Scroller/HUDCanvas/DeathBubble" + _player;
+		Color colour = GameObject.FindGameObjectWithTag ("GlobalConstant").GetComponent<ConstantData> ().playerColours [_controller];
+		GameObject.Find (name).GetComponent<Image>().color = colour;
 	}
 
 
