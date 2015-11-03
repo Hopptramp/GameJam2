@@ -59,6 +59,8 @@ public class bubbleInteraction : MonoBehaviour
 	{
 		if (col.transform.gameObject.tag == "Bubble") 
 		{
+			GameObject.Find ("SoundEffects").GetComponent<Sounds>().bubbleCollide(10);
+
 			ContactPoint contact = col.contacts [0];
             Bubble bubble = col.transform.gameObject.GetComponent<Bubble>();
             if (bubble.size != 0.5f)

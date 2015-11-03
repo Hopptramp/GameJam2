@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\BubbleAnimation.cs" />
      <Compile Include="Assets\Scripts\ConstantData.cs" />
      <Compile Include="Assets\Scripts\ControllerManager.cs" />
+     <Compile Include="Assets\Scripts\EmergencyReturn.cs" />
      <Compile Include="Assets\Scripts\HUD\DeathZone.cs" />
      <Compile Include="Assets\Scripts\HUD\HUDClock.cs" />
      <Compile Include="Assets\Scripts\HUD\ScoreTracker.cs" />
@@ -62,8 +63,11 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\PlayersReadyTut.cs" />
      <Compile Include="Assets\Scripts\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\ReadyMenu.cs" />
+     <Compile Include="Assets\Scripts\ResetGameFromEnd.cs" />
+     <Compile Include="Assets\Scripts\ShowControls.cs" />
      <Compile Include="Assets\Scripts\Sounds.cs" />
      <Compile Include="Assets\Scripts\VisualBackgroundScroller.cs" />
      <Compile Include="Assets\Scripts\backingTOONS.cs" />
