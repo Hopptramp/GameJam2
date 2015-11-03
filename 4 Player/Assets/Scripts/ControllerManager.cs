@@ -152,7 +152,7 @@ public class ControllerManager : MonoBehaviour
 				if(readyTime < (Time.realtimeSinceStartup - timeOnReady))
 				{
 					///Countdown text
-					GetComponent<ReadyMenu>().ChangeToScene("Empty 4 Player Test");
+					GetComponent<ReadyMenu>().ChangeToScene("Tutorial");
 				}
 			}
 		} 
