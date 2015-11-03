@@ -234,7 +234,7 @@ public class Player : MonoBehaviour
 		}
 
 		bool canJump = GetComponentInChildren<JumpReset> ().GetCanJump();
-		if (Input.GetButton ("Jump" + _controller) && canJump == true)
+		if (canJump == true)
 		{
 			applyJumpOnImpact =true;
 			jumpTime = 	0.25f;
