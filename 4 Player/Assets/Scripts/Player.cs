@@ -243,9 +243,17 @@ public class Player : MonoBehaviour
 
 	void InputChargeBubble(string _controller)
 	{
+		GameObject gunNoCharge = transform.Find ("Pivot/gun/arm").gameObject; 
+		GameObject gunFlash = transform.Find ("Pivot/gun/flash").gameObject;
+		GameObject gunCharge = transform.Find ("Pivot/gun/arm2").gameObject; 
+
 		float rightTrigger = Input.GetAxis ("RightTrigger" + _controller);
 		if (rightTrigger > 0) 
 		{
+			gunFlash.SetActive (true);
+			gunCharge.SetActive (true);
+			gunNoCharge.SetActive (false);
+
 			rightTriggerLastFrame = true;
 			//Only fire when not on cooldown
 			if(bar.ProgressOvertimeFinished() == true)
@@ -264,16 +272,28 @@ public class Player : MonoBehaviour
 				bar.ProgressOverTime(0, bubbleCooldown); //The progress bar is sorta managing the cooldown...ah well
 			}
 			rightTriggerLastFrame = false;
+
+			gunFlash.SetActive(false);
+			gunCharge.SetActive(false);
+			gunNoCharge.SetActive(true);
 		}
 
 	}
 
 	void InputBlowBubble(string _controller)
 	{
+		GameObject gunNoCharge = transform.Find ("Pivot/gun/arm").gameObject; 
+		GameObject gunFlash2 = transform.Find ("Pivot/gun/flash2").gameObject;
+		GameObject gunCharge2 = transform.Find ("Pivot/gun/arm3").gameObject; 
+
 		float leftTrigger = Input.GetAxis ("LeftTrigger" + _controller);
 		if (leftTrigger > 0) 
 		{
-            GetComponentInChildren<BlowScript>().blowActive = true;
+			gunNoCharge.SetActive (false);
+			gunFlash2.SetActive (true);
+			gunCharge2.SetActive (true);
+
+			GetComponentInChildren<BlowScript>().blowActive = true;
             GetComponentInChildren<ParticleSystem>().enableEmission = true;
 
 		}
@@ -281,7 +301,11 @@ public class Player : MonoBehaviour
         {
             GetComponentInChildren<BlowScript>().blowActive = false;
             GetComponentInChildren<ParticleSystem>().enableEmission = false;
-        }
+
+			gunNoCharge.SetActive(true);
+			gunFlash2.SetActive (false);
+			gunCharge2.SetActive (false);
+		}
 	}
 
 	void SpawnBubble(Vector3 _origin, Vector3 _direction, string _controller)
@@ -361,6 +385,7 @@ public class Player : MonoBehaviour
 		if (velocity <= -0.1 && !falling) 
 		{
 			falling = true;
+
 
 			anim.SetTrigger ("playerFellFromStay");
 		}
