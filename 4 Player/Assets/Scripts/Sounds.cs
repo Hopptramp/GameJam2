@@ -5,6 +5,7 @@ public class Sounds : MonoBehaviour
 {
 	//audio
 	public AudioClip pop;
+	public AudioClip bubbleBounce;
 	public AudioClip playerDead;
 	AudioSource sound;
 
@@ -24,10 +25,17 @@ public class Sounds : MonoBehaviour
 		{
 			bubblePop(1.0f);
 			Debug.Log("pop");
+
 		}
 	}
 
 	public void bubblePop(float scale)
+	{
+		float volume = (scale/10) ;
+		sound.PlayOneShot (pop, volume);
+	}
+
+	public void bubbleCollide(float scale)
 	{
 		float volume = (scale/10) ;
 		sound.PlayOneShot (pop, volume);

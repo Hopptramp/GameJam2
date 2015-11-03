@@ -1,0 +1,748 @@
+fileFormatVersion: 2
+guid: a84b2aa5824c1a74694e264ab9a88593
+timeCreated: 1446566944
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 1.d 1920 x 1080 no arm gun animation_0
+    21300002: 1.d 1920 x 1080 no arm gun animation_1
+    21300004: 1.d 1920 x 1080 no arm gun animation_2
+    21300006: 1.d 1920 x 1080 no arm gun animation_3
+    21300008: 1.d 1920 x 1080 no arm gun animation_4
+    21300010: 1.d 1920 x 1080 no arm gun animation_5
+    21300012: 1.d 1920 x 1080 no arm gun animation_6
+    21300014: 1.d 1920 x 1080 no arm gun animation_7
+    21300016: 1.d 1920 x 1080 no arm gun animation_8
+    21300018: 1.d 1920 x 1080 no arm gun animation_9
+    21300020: 1.d 1920 x 1080 no arm gun animation_10
+    21300022: 1.d 1920 x 1080 no arm gun animation_11
+    21300024: 1.d 1920 x 1080 no arm gun animation_12
+    21300026: 1.d 1920 x 1080 no arm gun animation_13
+    21300028: 1.d 1920 x 1080 no arm gun animation_14
+    21300030: 1.d 1920 x 1080 no arm gun animation_15
+    21300032: 1.d 1920 x 1080 no arm gun animation_16
+    21300034: 1.d 1920 x 1080 no arm gun animation_17
+    21300036: 1.d 1920 x 1080 no arm gun animation_18
+    21300038: 1.d 1920 x 1080 no arm gun animation_19
+    21300040: 1.d 1920 x 1080 no arm gun animation_20
+    21300042: 1.d 1920 x 1080 no arm gun animation_21
+    21300044: 1.d 1920 x 1080 no arm gun animation_22
+    21300046: 1.d 1920 x 1080 no arm gun animation_23
+    21300048: 1.d 1920 x 1080 no arm gun animation_24
+    21300050: 1.d 1920 x 1080 no arm gun animation_25
+    21300052: 1.d 1920 x 1080 no arm gun animation_26
+    21300054: 1.d 1920 x 1080 no arm gun animation_27
+    21300056: 1.d 1920 x 1080 no arm gun animation_28
+    21300058: 1.d 1920 x 1080 no arm gun animation_29
+    21300060: 1.d 1920 x 1080 no arm gun animation_30
+    21300062: 1.d 1920 x 1080 no arm gun animation_31
+    21300064: 1.d 1920 x 1080 no arm gun animation_32
+    21300066: 1.d 1920 x 1080 no arm gun animation_33
+    21300068: 1.d 1920 x 1080 no arm gun animation_34
+    21300070: 1.d 1920 x 1080 no arm gun animation_35
+    21300072: 1.d 1920 x 1080 no arm gun animation_36
+    21300074: 1.d 1920 x 1080 no arm gun animation_37
+    21300076: 1.d 1920 x 1080 no arm gun animation_38
+    21300078: 1.d 1920 x 1080 no arm gun animation_39
+    21300080: 1.d 1920 x 1080 no arm gun animation_40
+    21300082: 1.d 1920 x 1080 no arm gun animation_41
+    21300084: 1.d 1920 x 1080 no arm gun animation_42
+    21300086: 1.d 1920 x 1080 no arm gun animation_43
+    21300088: 1.d 1920 x 1080 no arm gun animation_44
+    21300090: 1.d 1920 x 1080 no arm gun animation_45
+    21300092: 1.d 1920 x 1080 no arm gun animation_46
+    21300094: 1.d 1920 x 1080 no arm gun animation_47
+    21300096: 1.d 1920 x 1080 no arm gun animation_48
+    21300098: 1.d 1920 x 1080 no arm gun animation_49
+    21300100: 1.d 1920 x 1080 no arm gun animation_50
+    21300102: 1.d 1920 x 1080 no arm gun animation_51
+    21300104: 1.d 1920 x 1080 no arm gun animation_52
+    21300106: 1.d 1920 x 1080 no arm gun animation_53
+    21300108: 1.d 1920 x 1080 no arm gun animation_54
+    21300110: 1.d 1920 x 1080 no arm gun animation_55
+    21300112: 1.d 1920 x 1080 no arm gun animation_56
+    21300114: 1.d 1920 x 1080 no arm gun animation_57
+    21300116: 1.d 1920 x 1080 no arm gun animation_58
+    21300118: 1.d 1920 x 1080 no arm gun animation_59
+    21300120: 1.d 1920 x 1080 no arm gun animation_60
+    21300122: 1.d 1920 x 1080 no arm gun animation_61
+    21300124: 1.d 1920 x 1080 no arm gun animation_62
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: 1.d 1920 x 1080 no arm gun animation_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 926
+        width: 93
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_1
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 929
+        width: 119
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_2
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1007
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_3
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 943
+        width: 24
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_4
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 1007
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_5
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 942
+        width: 24
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_6
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 941
+        width: 78
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_7
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 941
+        width: 78
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_8
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 994
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_9
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 994
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_10
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 954
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_11
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 954
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_12
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 938
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_13
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 938
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_14
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 870
+        width: 78
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_15
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 910
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_16
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 846
+        width: 24
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_17
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 910
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_18
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 845
+        width: 24
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_19
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 897
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_20
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 897
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_21
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 799
+        width: 78
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_22
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 857
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_23
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 857
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_24
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 841
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_25
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 841
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_26
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 689
+        width: 92
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_27
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 691
+        width: 104
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_28
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 694
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_29
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 699
+        width: 144
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_30
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 816
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_31
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 752
+        width: 24
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_32
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 816
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_33
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 751
+        width: 24
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_34
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 803
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_35
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 803
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_36
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 763
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_37
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 763
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_38
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 747
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_39
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 747
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_40
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 452
+        width: 93
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_41
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 454
+        width: 103
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_42
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 457
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_43
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 462
+        width: 143
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_44
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 467
+        width: 154
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_45
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 468
+        width: 163
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_46
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 466
+        width: 159
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_47
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 465
+        width: 143
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_48
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 243
+        width: 154
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_49
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 244
+        width: 164
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_50
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 242
+        width: 159
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_51
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 241
+        width: 143
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_52
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 155
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_53
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 122
+        width: 70
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_54
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 45
+        width: 59
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_55
+      rect:
+        serializedVersion: 2
+        x: 1781
+        y: 41
+        width: 30
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_56
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 48
+        width: 27
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_57
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 938
+        width: 61
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_58
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 938
+        width: 61
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_59
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 841
+        width: 61
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_60
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 841
+        width: 61
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_61
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 747
+        width: 61
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1.d 1920 x 1080 no arm gun animation_62
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 747
+        width: 61
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
