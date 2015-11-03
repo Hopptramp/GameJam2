@@ -35,6 +35,11 @@ public class HUDClock : MonoBehaviour
 
     }
 
+	public void setTime(float time)
+	{
+		totalTime = time;
+	}
+
     // Update is called once per frame
     void Update()
     {

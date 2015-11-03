@@ -33,6 +33,7 @@ public class PlayerManager : MonoBehaviour
 		
 	}
 
+
 	public void SetupPlayers()
 	{
 

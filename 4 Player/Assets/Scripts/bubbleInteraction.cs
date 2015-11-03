@@ -38,7 +38,12 @@ public class bubbleInteraction : MonoBehaviour
 	{
 	
 	}
-	
+
+	public void setSpeed(float _speed)
+	{
+		speed = _speed;
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
